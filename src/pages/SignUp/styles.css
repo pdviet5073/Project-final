@@ -1,0 +1,166 @@
+.ant-row{
+    margin-bottom: 12px;
+}
+.ant-col{
+    margin-bottom: -4px;
+}
+.SignUpModal{
+    border-radius: 4px;
+}
+.SignUpModal .ant-modal-footer,
+.SignUpModal .ant-modal-header,
+.SignUpModal .ant-modal-close
+{
+    display: none !important;
+}
+
+.SignUpModal .ant-modal-body{
+    padding: 0;
+}
+
+.SignUpModal-container{
+    background-color: #ffffff;
+    max-width: 840px;
+    border-radius: 6px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.SignUpModal-content{
+    min-height: 90vh;
+    width: 840px;
+    display: flex;
+}
+.SignUpContainer{
+    width: 420px;
+    margin:0 auto;
+    margin-bottom: 20px;
+}
+.SignUpContainer input, .ant-btn,.ant-input-password,.social-button{
+    border-radius: 3px;
+}
+
+.SignUpContainer-header{
+    width: 84%;
+    margin: 20px auto;
+    border-bottom: 1px solid #CCCC ;
+    padding-bottom: 10px;
+}
+.SignUpContainer-header h3{
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.SignUpContainer-body{
+    width: 84%;
+    margin: 0 auto;
+}
+
+
+.signUp-button{
+    display:inline-block;
+    color:#5392f9;
+    border-color:#5392f9;
+    width:100%;
+    height: 38px;
+}
+
+.right-panner{
+    background-color: #ecf6ff;
+    width: 420px;
+    position: relative;
+    border-radius: 6px;
+}
+.right-panner-container{
+
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.right-panner-container-image{
+    margin-bottom: 18px;
+    
+}
+.right-panner-container-text{
+    text-align: center;
+}
+.right-panner-container-text p{
+    margin-bottom: 4px;
+}
+.right-panner-container-text span{
+    color: red;
+}
+
+.horizontal-line{
+    width: 30%;
+    border-bottom: 1px solid #CCCC;
+}
+.SignUpContainer-social-note{
+    display: flex;
+    align-items: center;
+    width: 84%;
+    margin: 18px auto;
+   
+  justify-content: space-between;
+}
+.SignUpContainer-social-button{
+    width: 84%;
+    margin: 0 auto;
+}
+.social-button{
+    border: 1px solid rgb(144, 148, 156);
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.SignUpContainer-social-button img{
+    width: 24px;
+    height: 24px;
+}
+.facebook-apple-button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.social-facebook-button{
+    width: 170px;
+    
+}
+.social-apple-button{
+    width: 170px;
+
+}
+.social-button-item span{
+  margin-left: 8px;
+}
+.social-button-item {
+ 
+    display: flex;
+    align-items: center;
+    
+   
+}
+.footer-horizontal-line {
+    margin-top: 18px;
+    border-top: 1px solid #CCCC ;
+    width: 100%;
+}
+ .SignUpContainer-footer-item{
+    width: 84%;
+    margin: 18px auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+} 
+.SignUpContainer-footer-item button{
+    display: inline-block;
+    width: 155px;
+    height: 38px;
+    border-radius: 4px;
+}
+

@@ -1,0 +1,186 @@
+.ant-row{
+    margin-bottom: 12px;
+}
+.ant-col{
+    margin-bottom: -4px;
+}
+.loginModal .ant-modal-body{
+    padding: 0;
+}
+
+.loginModal  .ant-modal-footer,
+.loginModal  .ant-modal-header,
+.loginModal  .ant-modal-close
+{
+    display: none !important;
+}
+.loginModal-container{
+    background-color: #ffffff;
+    max-width: 840px;
+    border-radius: 6px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.loginModal-content{
+    
+    width: 840px;
+    display: flex;
+}
+.left-panner{
+    width: 420px;
+}
+.loginContainer{
+    width: 400px;
+   padding:0 35px ;
+    margin-bottom: 20px;
+}
+.loginContainer input,
+.loginContainer .ant-btn,
+.loginContainer .ant-input-password,
+.loginContainer .social-button{
+    border-radius: 3px;
+}
+/* --------------------form_header------------------------------------------ */
+
+.loginContainer-header{
+    margin: 20px auto;
+    border-bottom: 1px solid #CCCC ;
+    padding-bottom: 10px;
+}
+.loginContainer-header h3{
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+/* --------------------form_body------------------------------------------ */
+
+.loginContainer-body{
+    width: 100%;
+    
+}
+
+.login-button{
+    display:inline-block;
+    color:#5392f9;
+    border-color:#5392f9;
+    width:100%;
+    height: 38px;
+}
+.loginContainer-body-title{
+    margin-top: 10px;
+}
+
+.horizontal-line{
+    width: 30%;
+    border-bottom: 1px solid #CCCC;
+}
+.loginContainer-social-note{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 18px 0;
+   
+  justify-content: space-between;
+}
+.loginContainer-social-button{
+    width: 100%;
+  
+}
+.social-button{
+    border: 1px solid rgb(144, 148, 156);
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.loginContainer-social-button img{
+    width: 24px;
+    height: 24px;
+}
+.facebook-apple-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.login-social-facebook-button{
+    width: 150px;
+    
+}
+.login-social-apple-button{
+    width: 150px;
+
+}
+.social-button-item span{
+  margin-left: 8px;
+}
+.social-button-item {
+ 
+    display: flex;
+    align-items: center;
+     
+}
+/* --------------------form_footer------------------------------------------ */
+
+.loginContainer-footer{
+    width: 100%;
+    
+}
+.footer-horizontal-line {
+    margin-top: 18px;
+    border-top: 1px solid #CCCC ;
+    width: 100%;
+}
+.loginContainer-footer-item{
+   margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.loginContainer-footer-item button{
+    display: inline-block;
+    width: 155px;
+    height: 38px;
+    border-radius: 4px;
+}
+
+/* ------------------------------------------------------------ */
+.forgot-password{
+    text-align: right;
+    margin-bottom: 10px;
+}
+.login-button{
+    color: aliceblue;
+}
+/* .loginContainer  .ant-btn,.social-button{
+    cursor: pointer;
+    
+} */
+
+/*  ------------*/
+.login-right-panner{
+    border-radius: 4px;
+    background-color: #ecf6ff;
+    width: 420px;
+}
+.login-right-panner-container{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-panner-container-image{
+   width: fit-content;
+}
+.login-right-panner-text{
+    width: 90%;
+    text-align: center;
+}
+.login-right-panner-text p{
+    margin-bottom: 4px;
+}
+.login-right-panner-text span{
+    color: red;
+}

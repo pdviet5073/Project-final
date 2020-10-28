@@ -1,0 +1,67 @@
+.pay-room{
+  width: 65%;
+  height: fit-content;
+  padding: 20px;
+  margin-right:40px;
+  box-shadow: 1px 1px 9px rgba(0,0,0,.09);
+
+}
+.pay-room .ant-radio-group{
+  width: 100%;
+
+}
+.pay-room-item{
+  margin: 20px 0;
+}
+.pay-room-item:first-child span:last-child span{
+  margin-left: 12px;
+}
+.visa{
+}
+.visa div{
+  margin-top: 10px;
+}
+.visa img{
+  width: 40px;
+  height: 24px;
+  margin-right: 10px;
+}
+ .atm,.visa{
+  border: 1px solid #ccc;
+  padding: 15px 0 15px 25px ;
+  margin: 10px 0 0 40px;
+  border-radius: 4px;
+  
+}
+.pay-room-item-hide img{
+  margin: 6px;
+  width: 80px;
+  height: 44px;
+  border: 1px dashed #ccc;
+}
+/* ------------------------------ */
+.pay-room-content{
+  padding:0 15px;
+}
+.pay-room-content-button {
+  margin-top: 20px;
+}
+.pay-room-content-button button{
+  width: 250px;
+  height: 45px;
+  background: #ff8917;
+  border-color: #ff8917;
+  color: #fff;
+}
+.pay-room-content-button button:hover{
+  color: #fff;
+ 
+  background-color: #ff8917;
+  border-color: #ff8917;
+}
+.pay-room-content-button button:focus{
+  color: #fff;
+ 
+  background-color: #ff8917;
+  border-color: #ff8917;
+}
