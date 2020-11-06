@@ -9,8 +9,8 @@ import {
   CREATE_COMMENT_FAIL,
   GET_COMMENT_SUCCESS,
   GET_COMMENT_FAIL,
-  GET_AUTOCOMPLETE_SUCCESS,
-  GET_AUTOCOMPLETE_FAIL
+  GET_RANDOM_HOTEL_SUCCESS,
+  GET_RANDOM_HOTEL_FAIL
 } from '../constants';
 
 const initialState = {
@@ -18,7 +18,7 @@ const initialState = {
   searchHotelList:[],
   hotelDetail: [],
   commentList:[],
-  autoComplete: []
+  randomHotel: []
 };
 
 export default function hotelReducer(state = initialState, action) {
@@ -84,16 +84,16 @@ export default function hotelReducer(state = initialState, action) {
     case GET_COMMENT_FAIL: {
       return state;
     }
-    case   GET_AUTOCOMPLETE_SUCCESS:
+    case   GET_RANDOM_HOTEL_SUCCESS:
      {
       return {
         ...state,
-        autoComplete: [
+        randomHotel: [
           ...action.payload,
         ],
       }
     }
-    case GET_AUTOCOMPLETE_FAIL: {
+    case GET_RANDOM_HOTEL_FAIL: {
       return state;
     }
     default: {

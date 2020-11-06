@@ -15,10 +15,8 @@ export default function signUpReducer(state = initialState, action) {
     case CREATE_USER_ACCOUNT_SUCCESS: {
      
       return {
-        
         ...state,
         createAccount: [
-          ...state.createAccount,
           action.payload,
         ],
       }

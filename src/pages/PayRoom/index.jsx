@@ -1,13 +1,23 @@
-import React , {useState}from "react";
+import React , {useState, useEffect}from "react";
 import { Radio,Button } from "antd";
 import history from "../../util/history";
+import { connect } from 'react-redux';
+
+import { getRoomBooking, getHotelDetail, createTempBooking } from "../../redux/actions";
 
 import "./styles.css";
-function PayRoom({ match }) {
-  const roomId = match.params.id;
+function PayRoom({ setCheckPagePay }) {
   const [showCardVisa, setShowCardVisa] = useState(false)
   const [showCardATM, setShowCardATM] = useState(false)
+ 
+  
 
+  useEffect(() =>{
+
+    return () =>{
+      setCheckPagePay(false)
+    }
+  },[])
   const arrImage = [
     "VTB",
     "VCB",
@@ -43,9 +53,7 @@ function PayRoom({ match }) {
     else if(e.target.value=="3"){
       setShowCardATM(true);
       setShowCardVisa(false);
-
     }
-    
   }
   return (
     <div className="pay-room">
@@ -119,4 +127,17 @@ function PayRoom({ match }) {
   );
 }
 
-export default PayRoom;
+const mapStateToProps = (state) => {
+  const { roomBooking, tempBooking } = state.bookingReducer;
+  return {
+    roomBooking,
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getRoomBooking: (params) => dispatch(getRoomBooking(params)),
+
+
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PayRoom);

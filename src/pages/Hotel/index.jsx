@@ -17,7 +17,7 @@ import "./styles.css";
 import {
   getHotelList,
   getSearchHotelList,
-  getAutoComplete,
+ 
 } from "../../redux/actions";
 
 import iconmaps from "../../images/listHotel/iconmaps.svg";
@@ -42,6 +42,7 @@ function Hotel({
   const [current, setCurent] = useState(1);
   const [tempRate, settempRate] = useState();
   const [isShowSearchList, setIsShowSearchList] = useState(false);
+  console.log('Log: : isShowSearchList', isShowSearchList);
   const [dataSelect, setDataSelect] = useState([]);
   const [valueSelect, setValueSelect] = useState(undefined);
 
@@ -84,6 +85,10 @@ function Hotel({
 
   //sort  giá thấp đến cao
   const handelSort = (e) => {
+    console.log('Log: : handelSort -> e.target.value', e.target.value);
+    if (e.target.value == "bestFit") {
+      setIsShowSearchList(false);
+    }
     getSearchHotelList({
       place: place,
       sort: e.target.value,
@@ -95,26 +100,24 @@ function Hotel({
       sort: e.target.value,
     });
     setIsShowSearchList(true);
-    if (e.target.value == "bestFit") {
-      setIsShowSearchList(false);
-    }
+   
   };
 
-  //hàm lấy giá trị của checkbox
+  //hàm lấy giá trị của checkbox: sort bằng sao
   const onChangeCheckBox = (value) => {
-    if (value != 0) {
-      //lấy đc rate lẻ đi cùng với rate chẵn. vd:4 thì có cả 4.5
+    if (value!=0) {
+      //lấy đc sao lẻ đi cùng với sao chẵn. vd:4 thì có cả 4.5
       const decimalRate = value.map((item) => {
         return (parseInt(item) + 0.5).toString();
       });
-      //xoá trường hợp rate = 5.5
+      //xoá trường hợp sao = 5.5
       const deleteV = decimalRate.findIndex((item) => item == 5.5);
       if (deleteV != -1) {
         decimalRate.splice(deleteV, 1);
       }
-      //nối 2 mảng rate nguyên và rate lẻ
+      //nối 2 mảng sao nguyên và sao lẻ
       const totalRate = [...value, ...decimalRate];
-
+      setCurent(1)
       getSearchHotelList({
         place: place,
         rate: totalRate,
@@ -154,34 +157,56 @@ function Hotel({
     } else setIsShowSearchList(false);
   };
 
+  const handelChangeSearch = (value) => {
+    console.log('Log: : handelChangeSearch -> value', value.target.value);
+    if(value.target.value.length===0){
+      setSearchKey("");
+      
+    }
+     
+  }
   //fn lấy value input search
   const handelGetValueSearch = (value) => {
     if (value != "") {
       setSearchKey(value);
-      setIsShowSearchList(true);
     } else setIsShowSearchList(false);
   };
 
   //search bằng name. nếu search sao có dữ liệu thì filter trên list của search sao. còn không có sẽ là list hotel
+  console.log('Log: : searchKey', searchKey);
   const filterSearchListData = (
     (searchHotelList.length > 0 &&
-    isShowSearchList == true &&
-    searchKey != "")
-    ? searchHotelList
-    : hotelList
-  ).filter((item) => {
-    return item.name.toLowerCase().indexOf(searchKey.toLowerCase()) !== -1;
-  });
-
+      isShowSearchList == true &&
+      searchKey !="")
+      ? searchHotelList
+      : hotelList
+      ).filter((item) => {
+        return item.name.toLowerCase().indexOf(searchKey.toLowerCase()) !== -1;
+      });
+      
+      console.log('Log: : filterSearchListData', filterSearchListData);
   //dùng gán dữ liệu để in list nào [hotelList , searchList] trong hàm render list khách sạn
   const newList = () => {
     if (isShowSearchList) {
-      if (searchHotelList) return searchHotelList;
-      else return filterSearchListData;
+      if (searchHotelList && searchKey==false) return searchHotelList;
+      else if(searchHotelList && searchKey) return filterSearchListData;
+      
     } else {
+      if(searchKey) return filterSearchListData;
       return hotelList;
     }
   };
+  // const newList = () => {
+  //   if (isShowSearchList) {
+  //     if (searchHotelList.length>0 && searchKey =="") return searchHotelList;
+  //     else if( searchKey !="") return filterSearchListData;
+  //   } else {
+      
+  //     return hotelList;
+  //   }
+  // };
+  console.log('Log: : newList -> newList', newList());
+  console.log('Log: : newList -> searchHotelList.length', searchHotelList.length);
 
   //render  list khách sạn
   const renderHotelList = () => {
@@ -237,13 +262,20 @@ function Hotel({
                 <FcLike className="point-heart" />
                 <span className="point-child">
                   <span>{hotelItem.point}</span>
-                  {hotelItem.point > 9 ? (
+                  
+                      {hotelItem.point >= 9 ? (
                     <span>Tuyệt vời</span>
-                  ) : hotelItem.point > 8 ? (
+                  ) : hotelItem.point >= 8 ? (
                     <span>Rất tốt</span>
+                  ) : hotelItem.point >= 6.5 ? (
+                    <span>Tốt</span>
+                  ) : hotelItem.point >= 5 ? (
+                    <span>Chấp nhận được</span>
+                  ) : hotelItem.point >= 4 ? (
+                    <span>Kém</span>
                   ) : (
-                        <span>Tốt</span>
-                      )}
+                    <span>Quá kém</span>
+                  )}
                 </span>
               </div>
             </div>
@@ -307,20 +339,23 @@ function Hotel({
             <div className="hotel-left-number-one">
               <div>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Golden_Medal_-1_Icon.svg" alt="anh" />
-
               </div>
               <h2>
                 Số 1 về chất lượng và dịch vụ
               </h2>
             </div>
             <div className="hotel-left-container">
+             <div>
+             <h3>Tìm khách sạn</h3>
               <Search
                 placeholder="Nhập tên Khách sạn"
+                onChange={value => handelChangeSearch(value)}
                 onSearch={(value) => handelGetValueSearch(value)}
                 className="hotel-left-content-search"
               />
+             </div>
               <div className="hotel-left-content-ranking">
-                <h2>Xếp hạng khách sạn</h2>
+                <h3>Xếp hạng khách sạn</h3>
                 <Checkbox.Group onChange={onChangeCheckBox}>
                   <Checkbox value="1">
                     <Rate disabled value={1}></Rate>
@@ -340,7 +375,7 @@ function Hotel({
                 </Checkbox.Group>
               </div>
               <div className="hotel-left-content-sortPrice">
-                <h2>Mức giá</h2>
+                <h3>Mức giá</h3>
                 <div className="sortPrice-slider">
                   <Slider
                     range
@@ -369,7 +404,37 @@ function Hotel({
                     </Checkbox>
                   </Checkbox.Group>
                 </div>
+               
               </div>
+              <div className="hotel-left-content-type">
+                  <h3>Loại chỗ ở</h3>
+                  <Checkbox.Group >
+                    <Checkbox className="priceRange-first-child" value="1">
+                    hotel
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="2">
+                    apartment
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="3">
+                    guesthouse
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="4">
+                    hostel
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="5">
+                    aparthotel
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="6">
+                    homestay
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="7">
+                    resort
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="8">
+                    villa
+                    </Checkbox>
+                  </Checkbox.Group>
+                </div>
             </div>
           </div>
           <div className="hotel-right">
@@ -392,9 +457,10 @@ function Hotel({
                 </Radio.Button>
               </Radio.Group>
             </div>
-            <div style={{ minHeight: 900 }}>{renderHotelList()}</div>
+            <div className="hotel-right-container" >{renderHotelList()}</div>
             <div className="hotel-pagination">
-              <Pagination
+             {(current==1? (current==1 && hotelList.length>=10 ): hotelList.length>=0 )&& (
+                <Pagination
                 current={current}
                 total={40}
                 onChange={(page) => {
@@ -412,6 +478,7 @@ function Hotel({
                   );
                 }}
               />
+             )}
             </div>
           </div>
         </div>
@@ -422,11 +489,10 @@ function Hotel({
 }
 
 const mapStateToProps = (state) => {
-  const { hotelList, searchHotelList, autoComplete } = state.hotelReducer;
+  const { hotelList, searchHotelList,  } = state.hotelReducer;
   return {
     hotelList,
     searchHotelList,
-    autoComplete,
   };
 };
 
@@ -434,7 +500,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getHotelList: (params) => dispatch(getHotelList(params)),
     getSearchHotelList: (params) => dispatch(getSearchHotelList(params)),
-    getAutoComplete: (params) => dispatch(getAutoComplete(params)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Hotel);

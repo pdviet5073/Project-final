@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import history from "../../util/history";
 import { connect } from "react-redux";
 import {
@@ -10,17 +10,26 @@ import {
   Button,
   Modal,
   Progress,
+  Tooltip,
   Slider as SliderAnt,
 } from "antd";
+import {
+  FrownOutlined,
+  SmileOutlined,
+  ExclamationCircleOutlined,
+} from "@ant-design/icons";
+
 import { ToastContainer, toast } from "react-toastify";
-import { FrownOutlined, SmileOutlined,ExclamationCircleOutlined  } from "@ant-design/icons";
 import moment from "moment";
 import Slider from "react-slick";
+import ImageGallery from "react-image-gallery";
 
 import {
+  getHotelList,
   getHotelDetail,
   createComment,
   getCommentList,
+  getRandomHotel,
 } from "../../redux/actions";
 
 import iconmaps from "../../images/listHotel/iconmaps.svg";
@@ -32,16 +41,20 @@ import iconSucChua from "../../images/hotelDetail/i-succhua.png";
 import iconCommentGood from "../../images/hotelDetail/icon-review-good.png";
 import iconCommentBad from "../../images/hotelDetail/icon-review-bad.png";
 
-import { FcLike } from "react-icons/fc";
 import { FaBed } from "react-icons/fa";
 import { BiArea } from "react-icons/bi";
 
+import "react-image-gallery/styles/css/image-gallery.css";
 import "react-toastify/dist/ReactToastify.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles.css";
 
 function HotelDetail({
+  getRandomHotel,
+  randomHotel,
+  hotelList,
+  getHotelList,
   hotelDetail,
   getHotelDetail,
   match,
@@ -61,14 +74,15 @@ function HotelDetail({
   const [value6, setValue6] = useState(10);
   const [averageValue, setaAverageValue] = useState(10);
   const [numberPage, setNumberPage] = useState(1);
-  const [checkLoginDetail, setCheckLoginDetail] = useState(false);
-  const [person, setPerson] = useState(1);
-  const [room, setRoom] = useState(1);
-
+  const [isShowModalImage, setIsShowModalImage] = useState(false);
   const hotelId = match.params.id;
-  const place = match.params.place
+  const place = match.params.place;
 
   useEffect(() => {
+    getRandomHotel({
+      place: place,
+    });
+
     getHotelDetail({
       id: hotelId,
     });
@@ -77,12 +91,13 @@ function HotelDetail({
       page: numberPage,
       limit: 5,
     });
-    
-    let dateTime = { 
-      checkIn: moment().startOf("day").format('L'), 
-      checkOut: moment().add(1,"day").format('L')
+
+    // giá trị ban đầu của ngày đi và ngày đến là hôm nay và ngày mai
+    let dateTime = {
+      checkIn: moment().startOf("day").format("L"),
+      checkOut: moment().add(1, "day").format("L"),
     };
-    
+
     let rangeDateTime = JSON.stringify(dateTime);
     sessionStorage.setItem("date", rangeDateTime);
   }, [hotelId]);
@@ -92,6 +107,28 @@ function HotelDetail({
   const infoHotelDetail = hotelDetail.slice(0, 1);
   const totalCommentHotel = hotelDetail.slice(1, 2);
   const roomHotelDetail = hotelDetail.slice(2);
+
+  //modal image detail
+  const createArrImage = () => {
+    let arrImages = [];
+    const arrImageShowModal = infoHotelDetail;
+    arrImageShowModal.map((item, index) => {
+      item.url.map((item) =>
+        arrImages.push({
+          original: item.src,
+          thumbnail: item.src,
+        })
+      );
+    });
+    return arrImages;
+  };
+  //bật tắt modal image
+  const showModalImage = () => {
+    setIsShowModalImage(true);
+  };
+  const hideModalImage = () => {
+    setIsShowModalImage(false);
+  };
 
   const handleToggleDescription = (id) => {
     const moreDescriptionIndex = moreDescriptionList.findIndex(
@@ -129,6 +166,7 @@ function HotelDetail({
         page: 1,
         limit: 5,
       });
+      form.resetFields();
       toast.info("🦄 Cảm ơn bạn đã đóng góp ý kiến!", {
         position: "bottom-right",
         autoClose: 3000,
@@ -139,7 +177,7 @@ function HotelDetail({
         progress: undefined,
       });
     } else {
-      toast.info('🦄 Đăng nhập để thực hiện thao tác này!', {
+      toast.info("🦄 Đăng nhập để thực hiện thao tác này!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -147,20 +185,19 @@ function HotelDetail({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
-    };
+      });
+    }
   };
 
   // onclick đặt phòng
   const handelBooking = (roomItem) => {
-    if(localStorage.getItem("user")){
-    
+    if (localStorage.getItem("user")) {
       let idHotel = { id: hotelId };
       sessionStorage.setItem("idHotel", JSON.stringify(idHotel));
       history.push(`/booking/${place}/${hotelId}/${roomItem.id}/step-1`);
     } else {
       // show modal hiển thị thông báo chưa đăng nhập
-      toast.info('🦄 Đăng nhập để thực hiện thao tác này!', {
+      toast.info("🦄 Đăng nhập để thực hiện thao tác này!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -168,7 +205,7 @@ function HotelDetail({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+      });
     }
   };
 
@@ -182,7 +219,6 @@ function HotelDetail({
     let dateTime = { checkIn: dateString[0], checkOut: dateString[1] };
     let rangeDateTime = JSON.stringify(dateTime);
     sessionStorage.setItem("date", rangeDateTime);
- 
   };
 
   // get value số phòng, số người vào session
@@ -248,25 +284,40 @@ function HotelDetail({
           </div>
         </div>
         <div className="hotelDetail-header-images">
-          <div className="hotelDetail-header-image image-1">
+          <div
+            className="hotelDetail-header-image image-1 pointer"
+            onClick={() => showModalImage()}
+          >
             <img src={item.url[0].src} alt={item.url[0].alt} />
           </div>
-          <div className="hotelDetail-header-image image-2">
+          <div
+            className="hotelDetail-header-image image-2 pointer"
+            onClick={() => showModalImage()}
+          >
             <img src={item.url[1].src} alt={item.url[1].alt} />
           </div>
-          <div className="hotelDetail-header-image image-3">
+          <div
+            className="hotelDetail-header-image image-3 pointer"
+            onClick={() => showModalImage()}
+          >
             <img src={item.url[2].src} alt={item.url[2].alt} />
             <div>
-              <div className=" hotelDetail-header-image-point">
+              <div className=" hotelDetail-header-image-point pointer">
                 <span className="image-point">
                   <span>{item.point}</span>
-                  {item.point > 9 ? (
+                  {item.point >= 9 ? (
                     <span>Tuyệt vời</span>
-                  ) : item.point > 8 ? (
+                  ) : item.point >= 8 ? (
                     <span>Rất tốt</span>
+                  ) : item.point >= 6.5 ? (
+                    <span>Tốt</span>
+                  ) : item.point >= 5 ? (
+                    <span>Chấp nhận được</span>
+                  ) : item.point >= 4 ? (
+                    <span>Kém</span>
                   ) : (
-                        <span>Tốt</span>
-                      )}
+                    <span>Quá kém</span>
+                  )}
                 </span>
                 {commentList.length != 0 && (
                   <span className="number-vote pointer">
@@ -276,21 +327,27 @@ function HotelDetail({
               </div>
             </div>
           </div>
-          <div className="hotelDetail-header-image image-4">
-            <img src={item.url[7].src} alt={item.url[3].alt} />
-          </div>
-          <div className="hotelDetail-header-image image-5">
-            <img src={item.url[4].src} alt={item.url[4].alt} />
-          </div>
-          <div className="hotelDetail-header-image image-6">
+
+          <div
+            className="hotelDetail-header-image image-6 pointer"
+            onClick={() => showModalImage()}
+          >
             <img src={item.url[5].src} alt={item.url[5].alt} />
           </div>
-          <div className="hotelDetail-header-image image-7">
-            <img src={item.url[6].src} alt={item.url[6].alt} />
-            <div className="hotelDetail-header-image image-8">
+          <div className=" image-7 pointer" onClick={() => showModalImage()}>
+            <div className="hotelDetail-header-image">
+              <img src={item.url[6].src} alt={item.url[6].alt} />
+            </div>
+            <div
+              className="hotelDetail-header-image image-8 pointer"
+              onClick={() => showModalImage()}
+            >
               <img src={item.url[7].src} alt={item.url[7].alt} />
-              <div className="hotelDetail-header-more-image pointer">
-                <span href="">Xem tất cả {item.url.length} ảnh</span>
+              <div
+                className="hotelDetail-header-more-image pointer"
+                onClick={() => showModalImage()}
+              >
+                <span>Xem tất cả {item.url.length} ảnh</span>
               </div>
             </div>
           </div>
@@ -299,7 +356,7 @@ function HotelDetail({
     ));
   };
 
-  const settings = {
+  const settingSlider = {
     infinite: true,
     speed: 1000,
     slidesToShow: 1,
@@ -354,7 +411,7 @@ function HotelDetail({
           }
         >
           <div className="rooms-item-more-left">
-            <Slider {...settings}>
+            <Slider {...settingSlider}>
               <div>
                 <img
                   className=""
@@ -391,9 +448,7 @@ function HotelDetail({
             <img src={iconHoanTraPhong} alt="iconHoanTraPhong" />
             <div className="service-true">
               <span>Huỷ phòng</span>
-              <span>
-                Có hoàn huỷ
-              </span>
+              <span>Có hoàn huỷ</span>
             </div>
           </div>
           <div className="rooms-item-bottom-item">
@@ -475,13 +530,20 @@ function HotelDetail({
         <div className="hotelDetail-comment-point">
           <div className="comment-point ">
             <span>{item.point}</span>
-            {item.point > 9 ? (
+
+            {item.point >= 9 ? (
               <span>Tuyệt vời</span>
-            ) : item.point > 8 ? (
+            ) : item.point >= 8 ? (
               <span>Rất tốt</span>
+            ) : item.point >= 6.5 ? (
+              <span>Tốt</span>
+            ) : item.point >= 5 ? (
+              <span>Chấp nhận được</span>
+            ) : item.point >= 4 ? (
+              <span>Kém</span>
             ) : (
-                  <span>Tốt</span>
-                )}
+              <span>Quá kém</span>
+            )}
           </div>
           <div className="comment-name-user">
             <span>{item.userName}</span>
@@ -491,18 +553,79 @@ function HotelDetail({
           <p>"{item.status.comment}"</p>
           <p className="review-good">{item.status.good}</p>
           <p className="review-bad">{item.status.bad}</p>
-
-          <p></p>
-          <p></p>
         </div>
       </div>
     ));
   };
 
+  // random ra  3 phòng đề cử
+  // const randomHotel = () => {
+  //   const Rand = hotelList[Math.floor(Math.random() * hotelList.length)];
+  //   const Rand1 = hotelList[Math.floor(Math.random() * hotelList.length)];
+  //   const Rand2 = hotelList[Math.floor(Math.random() * hotelList.length)];
+  //   return [Rand, Rand1, Rand2];
+
+  //   // let Rand1;
+  //   // let Rand2;
+  //   // do {
+  //     //   Rand1 = hotelList[Math.floor(Math.random() * hotelList.length)];
+  //     //   Rand2 = hotelList[Math.floor(Math.random() * hotelList.length)];
+  //     // } while (
+  //       //   JSON.stringify(Rand1) === JSON.stringify(Rand) ||
+  //       //   JSON.stringify(Rand) === JSON.stringify(Rand2) ||
+  //       //   JSON.stringify(Rand1) === JSON.stringify(Rand2)
+  //       // );
+  // };
+
+  // đề cử khách sạn
+  const renderNominationsHotel = () => {
+    return randomHotel.map((itemRandom, indexRandom) => (
+      <div
+        className="hotelDetail-nominations-content"
+        key={`hotelDetail-nominations-${itemRandom.id}-${indexRandom}`}
+      >
+        <div className="hotelDetail-nominations-wrapper">
+          <img src={itemRandom.url[0].src} alt={itemRandom.url[0].src} />
+          <div className="hotelDetail-nominations-information">
+            <h2>{itemRandom.name}</h2>
+
+            <div className="hotelDetail-nominations-information-rate">
+              <Rate disabled allowHalf defaultValue={itemRandom.rate}></Rate>
+            </div>
+            <div className="hotelDetail-nominations-information-address">
+              <img src={iconmaps} alt="iconmaps" />
+              <Tooltip
+                placement="topLeft"
+                title={itemRandom.address}
+                color="#ff9633"
+              >
+                <span>{itemRandom.address}</span>
+              </Tooltip>
+            </div>
+
+            <div className="hotelDetail-nominations-information-price">
+              <p className="right-item-price-newPrice ">
+                <b>
+                  {itemRandom.defaultPrice.toLocaleString()}
+                  <span className="under-line">đ</span>
+                </b>
+              </p>
+            </div>
+            <div className="hotelDetail-nominations-information-button">
+              <Button
+                onClick={() => history.push(`/hotel/${place}/${itemRandom.id}`)}
+              >
+                Xem nơi này
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ));
+  };
   return (
     <div className="hotelDetail">
       <div className="hotelDetail-container">
-        
         <div className="hotelDetail-header">{renderHotelDetailImages()}</div>
 
         <div className="hotelDetail-body">
@@ -514,20 +637,18 @@ function HotelDetail({
               <Button>Miễn phí huỷ phòng</Button>
               <Button>Bao gồm bữa ăn</Button>
             </div>
-           
-              <div className="hotelDetail-choose-day">
-                <h3>Ngày đến - Ngày đi</h3>
-                <RangePicker
-                  disabledDate={disabledDate}
-                  defaultValue={[
-                    moment(moment().startOf("day"), dateFormat),
-                    moment(moment().add(1, 'day'), dateFormat),
-                  ]}
-                  format={dateFormat}
-                  onChange={handleChangeDateTime}
-                />
-             
 
+            <div className="hotelDetail-choose-day">
+              <h3>Ngày đến - Ngày đi</h3>
+              <RangePicker
+                disabledDate={disabledDate}
+                defaultValue={[
+                  moment(moment().startOf("day"), dateFormat),
+                  moment(moment().add(1, "day"), dateFormat),
+                ]}
+                format={dateFormat}
+                onChange={handleChangeDateTime}
+              />
             </div>
           </div>
           <div className="hotelDetail-rooms">{renderRooms()}</div>
@@ -546,7 +667,15 @@ function HotelDetail({
           <div className="create-comment">
             <h2>Bạn đánh giá khách sạn này như thế nào?</h2>
             <div className="create-comment-point">
-              <div className="create-comment-chart-point">
+              <div className={ 
+                 averageValue > 8
+                ?"create-comment-chart-point"
+                 :(averageValue >= 6.5 && averageValue <= 8)
+                 ? "point-above-average"
+                 : (averageValue >= 5 && averageValue < 6.5)
+                 ? "point-average"
+                 :  "point-least"
+              }>
                 <Progress
                   type="circle"
                   percent={averageValue * 10}
@@ -554,15 +683,22 @@ function HotelDetail({
                   status="ok"
                   width={200}
                   strokeWidth={3}
+                  
                 />
                 <span className="create-comment-chart-text">
-                  {averageValue > 9 ? (
+                  {averageValue >= 9 ? (
                     <span>Tuyệt vời</span>
-                  ) : averageValue > 8 ? (
+                  ) : averageValue >= 8 ? (
                     <span>Rất tốt</span>
+                  ) : averageValue >= 6.5 ? (
+                    <span>Tốt</span>
+                  ) : averageValue >= 5 ? (
+                    <span>Chấp nhận được</span>
+                  ) : averageValue >= 4 ? (
+                    <span>Kém</span>
                   ) : (
-                        <span>Tốt</span>
-                      )}
+                    <span>Quá kém</span>
+                  )}
                 </span>
               </div>
               <div className="create-comment-point-left">
@@ -579,14 +715,14 @@ function HotelDetail({
                             (index == 0
                               ? value1
                               : index == 1
-                                ? value2
-                                : index == 2
-                                  ? value3
-                                  : index == 3
-                                    ? value4
-                                    : index == 4
-                                      ? value5
-                                      : value6) <= 5
+                              ? value2
+                              : index == 2
+                              ? value3
+                              : index == 3
+                              ? value4
+                              : index == 4
+                              ? value5
+                              : value6) <= 5
                               ? "icon-wrapper-active"
                               : "icon-wrapper icon-wrapper-first-child"
                           }
@@ -599,14 +735,14 @@ function HotelDetail({
                             index == 0
                               ? value1
                               : index == 1
-                                ? value2
-                                : index == 2
-                                  ? value3
-                                  : index == 3
-                                    ? value4
-                                    : index == 4
-                                      ? value5
-                                      : value6
+                              ? value2
+                              : index == 2
+                              ? value3
+                              : index == 3
+                              ? value4
+                              : index == 4
+                              ? value5
+                              : value6
                           }
                           step={0.1}
                         />
@@ -615,14 +751,14 @@ function HotelDetail({
                             (index == 0
                               ? value1
                               : index == 1
-                                ? value2
-                                : index == 2
-                                  ? value3
-                                  : index == 3
-                                    ? value4
-                                    : index == 4
-                                      ? value5
-                                      : value6) > 5
+                              ? value2
+                              : index == 2
+                              ? value3
+                              : index == 3
+                              ? value4
+                              : index == 4
+                              ? value5
+                              : value6) > 5
                               ? "icon-wrapper-active"
                               : "icon-wrapper"
                           }
@@ -690,20 +826,41 @@ function HotelDetail({
           <div className="get-comment">
             {renderComment()}
             <div className="get-comment-pagination">
-              <Pagination
-                current={numberPage}
-                total={40}
-                onChange={(page) => {
-                  return (
-                    setNumberPage(page), getCommentList({id: hotelId, page, limit: 5 })
-                  );
-                }}
-              />
+              {commentList.length > 0 && (
+                <Pagination
+                  current={numberPage}
+                  total={40}
+                  onChange={(page) => {
+                    return (
+                      setNumberPage(page),
+                      getCommentList({ id: hotelId, page, limit: 5 })
+                    );
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>
-        <div className="hotelDetail-nominations"></div>
+        <div className="hotelDetail-nominations">
+          <h2>
+            <b>Khách sạn có liên quan</b>
+          </h2>
+          <div className="hotelDetail-nominations-container">
+            {renderNominationsHotel()}
+          </div>
+        </div>
       </div>
+      <Modal
+        maskClosable="true"
+        visible={isShowModalImage}
+        width={1300}
+        onCancel={hideModalImage}
+        onOk={showModalImage}
+        centered="true"
+        className="hotelDetail-modal"
+      >
+        <ImageGallery items={createArrImage()} />
+      </Modal>
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
@@ -716,34 +873,43 @@ function HotelDetail({
         pauseOnHover
       />
       <ToastContainer
-position="top-right"
-autoClose={3000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
-{/* Same as */}
-<ToastContainer />
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {/* Same as */}
+      <ToastContainer />
     </div>
   );
 }
 const mapStateToProps = (state) => {
-  const { hotelDetail, commentList } = state.hotelReducer;
+  const {
+    hotelList,
+    hotelDetail,
+    commentList,
+    randomHotel,
+  } = state.hotelReducer;
   return {
     hotelDetail,
     commentList,
+    hotelList,
+    randomHotel,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getHotelList: (params) => dispatch(getHotelList(params)),
     getHotelDetail: (params) => dispatch(getHotelDetail(params)),
     createComment: (params) => dispatch(createComment(params)),
     getCommentList: (params) => dispatch(getCommentList(params)),
+    getRandomHotel: (params) => dispatch(getRandomHotel(params)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HotelDetail);

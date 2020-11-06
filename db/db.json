@@ -267,7 +267,7 @@
         }
       ],
       "address": "19 Chả Cá, Hàng Đào, Hoàn Kiếm, Hà Nội, Việt Nam",
-      "defaultPrice": 889000,
+      "defaultPrice": 3999000,
       "oldPrice": 1390000,
       "rate": 3,
       "point": 8,
@@ -323,7 +323,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 499000,
       "oldPrice": 1390000,
       "rate": 3.5,
       "point": 9.4,
@@ -379,7 +379,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 1299000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -435,7 +435,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 2599000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1006,7 +1006,7 @@
     },
     {
       "id": 19,
-      "place": "da nang",
+      "place": "nha_trang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1107,7 +1107,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 389000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1118,7 +1118,7 @@
     },
     {
       "id": 21,
-      "place": "da nang",
+      "place": "nha_trang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1163,7 +1163,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 499000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1174,7 +1174,7 @@
     },
     {
       "id": 22,
-      "place": "da nang",
+      "place": "nha_trang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1219,7 +1219,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 3999000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1230,7 +1230,7 @@
     },
     {
       "id": 23,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1275,7 +1275,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 2889000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1286,7 +1286,7 @@
     },
     {
       "id": 24,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1331,7 +1331,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 1299000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1342,7 +1342,7 @@
     },
     {
       "id": 25,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1387,7 +1387,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 1599000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1398,7 +1398,7 @@
     },
     {
       "id": 26,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1443,7 +1443,7 @@
         }
       ],
       "address": "684 Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Hà Nội",
-      "defaultPrice": 889000,
+      "defaultPrice": 3999000,
       "oldPrice": 1390000,
       "pool": true,
       "restaurant": true,
@@ -1454,7 +1454,7 @@
     },
     {
       "id": 27,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1510,7 +1510,7 @@
     },
     {
       "id": 28,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -1566,7 +1566,7 @@
     },
     {
       "id": 29,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "B25 Sahul Hotel",
       "url": [
         {
@@ -1622,7 +1622,7 @@
     },
     {
       "id": 30,
-      "place": "da nang",
+      "place": "da_nang",
       "name": "A25 Sahul Hotel",
       "url": [
         {
@@ -3073,8 +3073,39 @@
       "lastName": "việt",
       "phone": "0868869736",
       "id": 1
+    },
+    {
+      "email": "viet@gmail.com",
+      "password": "123321",
+      "firstName": "Phạm",
+      "lastName": "việt",
+      "phone": "0868869736",
+      "id": 2
+    },
+    {
+      "email": "cham@gmail.com",
+      "password": "123456",
+      "firstName": "Trang",
+      "lastName": "phạm",
+      "phone": "0902565356",
+      "id": 3
+    },
+    {
+      "email": "Talaonghfgoc@gmail.com",
+      "password": "111111",
+      "firstName": "Phạm",
+      "lastName": "việt",
+      "phone": "0868869736",
+      "id": 4
+    },
+    {
+      "email": "Talaonghyyoc@gmail.com",
+      "password": "123321",
+      "firstName": "Phạm",
+      "lastName": "việt",
+      "phone": "0868869736",
+      "id": 5
     }
-    
   ],
   "comments": [
     {
@@ -3220,6 +3251,522 @@
         "bad": "123"
       },
       "id": 12
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "ok",
+        "good": "ok",
+        "bad": "ok"
+      },
+      "id": 13
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 14
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 15
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": ""
+      },
+      "id": 16
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 17
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 18
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 19
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 20
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 21
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 22
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 23
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 24
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 25
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 26
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 27
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 28
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 29
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 30
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 31
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 32
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 33
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 34
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 35
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 36
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "2",
+        "bad": "3"
+      },
+      "id": 37
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "3",
+        "bad": "4"
+      },
+      "id": 38
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "4",
+        "bad": "5"
+      },
+      "id": 39
+    },
+    {
+      "hotelId": 2,
+      "point": "9.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "33",
+        "good": "44",
+        "bad": "55"
+      },
+      "id": 40
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "22",
+        "bad": "2"
+      },
+      "id": 41
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "22",
+        "bad": "2"
+      },
+      "id": 42
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "22",
+        "bad": "2"
+      },
+      "id": 43
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "22",
+        "bad": "2"
+      },
+      "id": 44
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "22",
+        "good": "222",
+        "bad": "22"
+      },
+      "id": 45
+    },
+    {
+      "hotelId": 2,
+      "point": "10.0",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222",
+        "good": "2",
+        "bad": "2"
+      },
+      "id": 46
+    },
+    {
+      "hotelId": 2,
+      "point": "6.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "fsdf",
+        "good": "sdsf",
+        "bad": "sd"
+      },
+      "id": 47
+    },
+    {
+      "hotelId": 2,
+      "point": "6.2",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "fsdf",
+        "good": "sdsf",
+        "bad": "sd"
+      },
+      "id": 48
+    },
+    {
+      "hotelId": 20,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "2",
+        "bad": "2"
+      },
+      "id": 49
+    },
+    {
+      "hotelId": 20,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "22",
+        "good": "22",
+        "bad": "22"
+      },
+      "id": 50
+    },
+    {
+      "hotelId": 4,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "1",
+        "good": "1",
+        "bad": "1"
+      },
+      "id": 51
+    },
+    {
+      "hotelId": 4,
+      "point": "6.3",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "3",
+        "good": "3",
+        "bad": "3"
+      },
+      "id": 52
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Trang phạm",
+      "userId": 3,
+      "status": {
+        "comment": "1",
+        "good": "1",
+        "bad": "1"
+      },
+      "id": 53
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Trang phạm",
+      "userId": 3,
+      "status": {
+        "comment": "2",
+        "good": "2",
+        "bad": "2"
+      },
+      "id": 54
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Trang phạm",
+      "userId": 3,
+      "status": {
+        "comment": "4",
+        "good": "4",
+        "bad": "4"
+      },
+      "id": 55
     }
   ],
   "tempBooking": {}

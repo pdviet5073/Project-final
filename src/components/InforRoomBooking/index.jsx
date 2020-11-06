@@ -12,7 +12,10 @@ import iconmaps from "../../images/listHotel/iconmaps.svg";
 import "./styles.css";
 
 function InforRoomBooking({
+  checkPagePay,
   match,
+  tempBooking,
+  createTempBooking,
   roomBooking,
   getRoomBooking,
   hotelDetail,
@@ -28,13 +31,17 @@ function InforRoomBooking({
   const roomId = match.params.idRoom
   
   useEffect(() => {
-    
     getRoomBooking({
       idHotel: hotelsId,
       idRoom: roomId
     })
-  }, [roomId])
+  }, [])
 
+  useEffect(() =>{
+    return () =>{
+      sessionStorage.removeItem("infoUserBooking")
+    }
+  },[])
   const infoHotel = roomBooking.slice(0, 1);
   const room = roomBooking.slice(1);
   
@@ -43,7 +50,9 @@ function InforRoomBooking({
     let dateCheckIn = new Date(`${dateTime.checkIn}`);
     let dateCheckOut = new Date(`${dateTime.checkOut}`);
     let diffTime = Math.abs(dateCheckOut - dateCheckIn);
-    return Math.ceil(diffTime / (1000 * 60 * 60 * 24) + 1);
+    const countDay = Math.ceil(diffTime / (1000 * 60 * 60 * 24) );
+      const tempCountDay = (countDay == 0 ? 1 : countDay)
+    return tempCountDay
   }
 
   const renderInformationRoom = () => {
@@ -135,7 +144,9 @@ function InforRoomBooking({
       <div className="information-room-container">
         {renderInformationRoom()}
       </div>
-      <div className="information-room-code-discount">
+      {checkPagePay ===true &&(
+        <>
+ <div className="information-room-code-discount">
         <div>
           <Input.Search
             placeholder="Nhập mã giảm giá"
@@ -145,7 +156,7 @@ function InforRoomBooking({
           />
         </div>
       </div>
-     {infoUserBooking && (
+    
         <div className="information-room-user">
           <div>
           <h3>Thông tin đặt phòng</h3>
@@ -177,7 +188,10 @@ function InforRoomBooking({
         </div>
         )}
       </div>
-     )}
+        </>
+      )}
+     
+     
     </div>
 
 
@@ -185,11 +199,12 @@ function InforRoomBooking({
 }
 
 const mapStateToProps = (state) => {
-  const { roomBooking } = state.bookingReducer;
+  const { roomBooking,tempBooking } = state.bookingReducer;
   const { hotelDetail } = state.hotelReducer;
   return {
     roomBooking,
-    hotelDetail
+    hotelDetail,
+    tempBooking
   }
 };
 const mapDispatchToProps = (dispatch) => {

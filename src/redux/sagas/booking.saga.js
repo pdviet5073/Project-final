@@ -35,7 +35,6 @@ function* createTempBookingSaga(action){
   try {
     const response= yield axios.post(`${apiUrl}/tempBooking`, action.payload);
     const data = response.data
-  
     yield put({
       type: CREATE_TEMP_BOOKING_SUCCESS,
       payload: data,

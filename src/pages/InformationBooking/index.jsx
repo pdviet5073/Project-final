@@ -7,6 +7,7 @@ import { Pagination, Rate, Form, Input, DatePicker, Button, Checkbox, Select } f
 import "./styles.css";
 
 function InformationBooking({
+  setCheckPagePay,
   match,
   roomBooking,
   getRoomBooking,
@@ -20,11 +21,7 @@ function InformationBooking({
   const hotelId = match.params.idHotel;
 
 
-  useEffect(() => {
-    getRoomBooking({
-      id: roomId
-    });
-  }, [roomId])
+  
 
   const informationUser = JSON.parse(localStorage.getItem("user"));
   const prefixSelector = (
@@ -57,7 +54,6 @@ function InformationBooking({
     setCheckPersonCheckIn(!checkPersonCheckIn)
   }
   const submitInformationUser = (value) => {
-    console.log('Log: : submitInformationUser -> value', value);
     const infoUserBooking = {
       email: value.email,
       name: value.name,
@@ -70,7 +66,7 @@ function InformationBooking({
     const infoUser = JSON.stringify(infoUserBooking);
     sessionStorage.setItem("infoUserBooking", infoUser);
 
-
+    setCheckPagePay(true)
     history.push(`/booking/${place}/${hotelId}/${roomId}/step-2`)
   }
   return (

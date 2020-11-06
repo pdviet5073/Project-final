@@ -172,7 +172,7 @@ function Home() {
             <div className="world-container">
               <div
                 className="world-item world-lon-don"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                onClick={() => history.push(`/hotel/${"london"}`)}
               >
                 <img
                   src="https://london.ac.uk/sites/default/files/styles/max_1300x1300/public/2018-10/london-aerial-cityscape-river-thames_1.jpg?itok=6LenFxuz"
@@ -182,7 +182,7 @@ function Home() {
               </div>
               <div
                 className="world-item world-singapore"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                onClick={() => history.push(`/hotel/${"singapore"}`)}
               >
                 <img
                   src="https://trogiupphaply.gov.vn/sites/default/files/nghien-cuu-trao-doi/b310a2b831bccae293ad.jpg"
@@ -192,7 +192,7 @@ function Home() {
               </div>
               <div
                 className="world-item world-maldives"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                onClick={() => history.push(`/hotel/${"maldives"}`)}
               >
                 <img
                   src="https://img.vietnamfinance.vn/thumbs/700x0/upload/news/vananh/2018/2/8/w-maldives.jpg"
@@ -202,7 +202,7 @@ function Home() {
               </div>
               <div
                 className="world-item world-cappadocia"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                onClick={() => history.push(`/hotel/${"cappadocia"}`)}
               >
                 <img
                   src="https://twistedsifter.files.wordpress.com/2014/06/balloon-ride-cappadocia-turkey.jpg?w=800"
@@ -212,7 +212,7 @@ function Home() {
               </div>
               <div
                 className="world-item world-barcelona"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                onClick={() => history.push(`/hotel/${"barcelona"}`)}
               >
                 <img
                   src="https://baogialai.com.vn/dataimages/201802/original/images2618964_59bx_thanh_duong.jpg"
@@ -222,7 +222,7 @@ function Home() {
               </div>
               <div
                 className="world-item world-hong-kong"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                onClick={() => history.push(`/hotel/${"hong_kong"}`)}
               >
                 <img
                   src="https://tour.dulichvietnam.com.vn/uploads/tour/tmp_1570154575.jpg"
@@ -231,8 +231,8 @@ function Home() {
                 <h3>Hong Kong</h3>
               </div>
               <div
-                className="world-item world-London"
-                onClick={() => history.push(`/hotel/${"phu_quoc"}`)}
+                className="world-item world-los-angeles"
+                onClick={() => history.push(`/hotel/${"los-angeles"}`)}
               >
                 <img
                   src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/71/39/f1.jpg"
@@ -289,69 +289,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="home-partner">
-        <h2>
-          <b>Đối tác của chúng tôi</b>
-        </h2>
-        <div className="home-partner-container">
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200796134-3e687ae7c1e145253ef72691f5f18318.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200776552-f852b752ae88e7e0902fb0d3bfc41a00.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200809743-5dde6f77b2b13ac38a752953eb78e692.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-          <img
-            src="https://ik.imagekit.io/tvlk/image/imageResource/2017/08/08/1502200780482-30c1b0ea86019fe73c4d14683e409293.png?tr=q-75,w-82"
-            alt=""
-          />
-        </div>
-      </div>
+     
       <div className="home-mentioned">
         <h2>
           <b>Arya.com đã được nhắc đến</b>

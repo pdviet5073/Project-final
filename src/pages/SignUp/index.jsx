@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import history from '../../util/history';
 
 import {
   Form,
@@ -17,18 +18,28 @@ import applelogo from "../../images/headerImages/applelogo.png";
 
 import { createUserAccount } from "../../redux/actions";
 
+import { getUserAccount } from "../../redux/actions";
+import { ToastContainer, Slide} from "react-toastify";
 import "./styles.css";
 const { Option } = Select;
 
 function SignUp({
+  createAccount,
   createUserAccount,
   showSignUp,
   hidePageSignUp,
   showPageSignUp,
-  showPageLogin
+  showPageLogin,
+  setCheckLoginHeader
 }) {
-  console.log('Log: : showSignUp', showSignUp);
   const [form] = Form.useForm();
+  useEffect(()=>{
+    if(createAccount){
+      setCheckLoginHeader(true)
+      hidePageSignUp()
+    }
+  },[createAccount])
+
   const onFinish = (values) => {
     createUserAccount({
       email: values.email,
@@ -37,6 +48,8 @@ function SignUp({
       lastName: values.lastName,
       phone: values.phone,
     });
+    history.push("/")
+    
   };
 
   const prefixSelector = (
@@ -59,9 +72,19 @@ function SignUp({
         form={form}
         name="register"
         onFinish={(values) => onFinish(values)}
-        initialValues={{
-          prefix: "+84",
-        }}
+        initialValues={
+          (showSignUp==true ?{
+            prefix: "+84",
+            email: "",
+            password: "",
+            confirmPassword:"",
+            firstName: "",
+            lastName: "",
+            agreement: false
+          } : {prefix: "+84"}
+            )
+        }
+        preserve={false}
         scrollToFirstError
       >
         <Form.Item
@@ -89,13 +112,17 @@ function SignUp({
               required: true,
               message: "Vui lòng nhập mật khẩu!",
             },
+            {
+              min: 6,
+              message: "Mật khẩu không được nhỏ hơn 6 kí tự",
+            },
           ]}
           hasFeedback
         >
           <Input.Password />
         </Form.Item>
         <Form.Item
-          name="confirm"
+          name="confirmPassword"
           label="Nhập lại mật khẩu"
           dependencies={["password"]}
           hasFeedback
@@ -103,6 +130,10 @@ function SignUp({
             {
               required: true,
               message: "Vui lòng nhập lại!",
+            },
+            {
+              min: 6,
+              message: "Mật khẩu không được nhỏ hơn 6 kí tự",
             },
             ({ getFieldValue }) => ({
               validator(rule, value) {
@@ -198,6 +229,7 @@ function SignUp({
         onOk={showPageSignUp}
         centered="true"
         className="SignUpModal"
+        destroyOnClose={true}
       >
         <div className="SignUpModal-container">
           <div className="SignUpModal-content">
@@ -266,9 +298,27 @@ function SignUp({
           </div>
         </div>
       </Modal>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        transition={Slide}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  const { createAccount } = state.signUpReducer;
+  return {
+    createAccount
+  }
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -276,4 +326,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

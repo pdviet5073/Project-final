@@ -1,6 +1,7 @@
 import { put, takeEvery } from "redux-saga/effects";
 import axios from "axios";
-
+import { Slide, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   CREATE_USER_ACCOUNT,
   CREATE_USER_ACCOUNT_FAIL,
@@ -14,12 +15,36 @@ const apiUrl = "http://localhost:3001";
 
 function* createUserAccountSaga(action) {
   try {
-    const response = yield axios.post(`${apiUrl}/userAccount`, action.payload);
+    const {email} = action.payload;
+    const responseCheck = yield axios.get(`${apiUrl}/userAccount?email=${email}`);
+    const dataCheck = responseCheck.data;
+    console.log('Log: : function*createUserAccountSaga -> dataCheck', dataCheck.length);
+    if(dataCheck.length>0){
+      toast('😲 Tên tài khoản đã tồn tại', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        transition:Slide
+        });
+      yield put({
+        type: CREATE_USER_ACCOUNT_FAIL,
+       
+      });
+
+    }else{
+      const response = yield axios.post(`${apiUrl}/userAccount`, action.payload);
     const data = response.data;
+    let user = JSON.stringify(data);
+    localStorage.setItem("user", user);
     yield put({
       type: CREATE_USER_ACCOUNT_SUCCESS,
       payload: data,
     });
+  }
   } catch (error) {
     yield put({
       type: CREATE_USER_ACCOUNT_FAIL,
@@ -29,10 +54,9 @@ function* createUserAccountSaga(action) {
 }
 function* getUserAccountSaga(action) {
   const { email, password } = action.payload;
-  const response = yield axios.get(`${apiUrl}/userAccount?email=${email}&password=${password}`
-  );
+  const response = yield axios.get(`${apiUrl}/userAccount?email=${email}&password=${password}`);
   const data = response.data;
-  if (data.length) {
+  if (data.length>0) {
     let user = JSON.stringify(data[0]);
     localStorage.setItem("user", user);
     yield put({
@@ -40,9 +64,20 @@ function* getUserAccountSaga(action) {
       payload: data[0],
     });
   } else {
+    toast('😲 Tài khoản hoặc mật khẩu chưa đúng', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      transition:Slide
+      });
     yield put({
-      type: GET_USER_ACCOUNT_FAIL,
+      type: GET_USER_ACCOUNT_FAIL
     });
+   
   }
 }
 

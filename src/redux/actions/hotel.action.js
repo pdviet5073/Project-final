@@ -4,7 +4,7 @@ import {
   GET_HOTEL_DETAIL,
   CREATE_COMMENT,
   GET_COMMENT,
-  GET_AUTOCOMPLETE
+  GET_RANDOM_HOTEL
 } from '../constants';
 
 export function getHotelList(params) {
@@ -38,9 +38,9 @@ export function getCommentList(params) {
     payload: params,
   }
 }
-export function getAutoComplete(params) {
+export function getRandomHotel(params) {
   return {
-    type: GET_AUTOCOMPLETE,
+    type: GET_RANDOM_HOTEL,
     payload: params,
   }
 }

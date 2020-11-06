@@ -5,13 +5,44 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 
 function Footer() {
+  const arrCity = ["Khách sạn An Giang","Khách sạn Bà Rịa - Vũng Tàu","Khách sạn Bạc Liêu","Khách sạn Bạc Liêu",
+                  "Khách sạn Bình Dương","Khách sạn Bình Thuận","Khách sạn Cà Mau","Khách sạn Cần Thơ",
+                  "Khách sạn Đà Nẵng","Khách sạn Điện Biên","Khách sạn Đồng Nai","Khách sạn Hà Giang",
+                  "Khách sạn Hà Nội","Khách sạn Hải Dương","Khách sạn Hải Phòng","Khách sạn Tp.Hồ Chí Minh",
+                  "Khách sạn Khánh Hòa","Khách sạn Lai Châu","Khách sạn Lạng Sơn ","Khách sạn Lào Cai",
+                  "Khách sạn Lâm Đồng","Khách sạn Nghệ An","Khách sạn Ninh Bình","Khách sạn Quảng Bình",
+                  "Khách sạn Quảng Nam","Khách sạn Quảng Ngãi","Khách sạn Quảng Ninh","Khách sạn Quảng Trị",
+                  "Khách sạn Sóc Trăng","Khách sạn Sơn La","Khách sạn Tây Ninh","Khách sạn Thái Bình",
+                  "Khách sạn Thái Nguyên","Khách sạn Thanh Hóa","Khách sạn Thừa Thiên - Huế","Khách sạn Tiền Giang",
+                  "Khách sạn Trà Vinh","Khách sạn Tuyên Quang","Khách sạn Vĩnh Long","Khách sạn Vĩnh Phúc",
+                  "Khách sạn Yên Bái" ];
+
+  const renderCity = () => {
+   return arrCity.map((item, index) => (
+      <span key={`city-item-${item}-${index}`} 
+        className={`pointer ${(item==="Khách sạn Đà Nẵng" || item==="Khách sạn Hà Nội" || item==="Khách sạn Tp.Hồ Chí Minh" 
+        ||item==="Khách sạn Thanh Hóa" ||item==="Khách sạn Lâm Đồng" ||item==="Khách sạn Khánh Hòa" || item==="Khách sạn Hà Giang" ) 
+                  && `city-item-both`}`}
+      >
+        {item}
+      </span>
+   ))}
+  
   return (
     <div className="footer">
+      <div className="footer-city">
+        <div className="footer-city-title">
+        <h3><b>Khách sạn theo tỉnh thành phố</b></h3>
+        <span></span>
+        </div>
+        <div className="footer-city-container">
+          {renderCity()}
+        </div>
+      </div>
       <div className="footer-top">
         <div className="footer-top-col-1">
-          
           <div>
-           <p>   Về Vntrip</p>
+           <p>   Về Arya</p>
             <p> Liên hệ</p>
            <p>  Điều khoản sử dụng</p>
            <p>  Quy chế hoạt động</p>

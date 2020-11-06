@@ -17,9 +17,9 @@ import {
   GET_COMMENT,
   GET_COMMENT_SUCCESS,
   GET_COMMENT_FAIL,
-  GET_AUTOCOMPLETE,
-  GET_AUTOCOMPLETE_SUCCESS,
-  GET_AUTOCOMPLETE_FAIL
+  GET_RANDOM_HOTEL,
+  GET_RANDOM_HOTEL_SUCCESS,
+  GET_RANDOM_HOTEL_FAIL
 } from '../constants';
 
 function* getHotelListSaga(action){
@@ -30,8 +30,8 @@ function* getHotelListSaga(action){
       url: 'http://localhost:3001/hotel',
       params: {
         place:place,
-        _page: page,
-        _limit: limit,
+        ...page&&{_page: page},
+        ...limit &&{_limit: limit},
       }
     });
     const data = response.data;
@@ -156,24 +156,30 @@ function* getCommentSaga(action){
     });
   }
 }
-function* getAutocompleteSaga(action){
+function* getRandomHotelSaga(action){
   try {
-    const {value} = action.payload;
+    const { place } = action.payload;
     const response = yield axios({
       method: 'GET',
-      url: `http://localhost:3001/hotel`,
-      params:{
-        q: value
-      }
-    });
+      url: 'http://localhost:3001/hotel',
+      params: {
+        place:place
+      }})
     const data = response.data;
-    yield put({
-      type: GET_AUTOCOMPLETE_SUCCESS,
-      payload: data,
-    });
+    if(data.length>0){
+      const Rand = data[Math.floor(Math.random() * data.length)];
+      const Rand1 = data[Math.floor(Math.random() * data.length)];
+      const Rand2 = data[Math.floor(Math.random() * data.length)];
+      const dataRandom = [Rand, Rand1, Rand2];
+      yield put({
+        type: GET_RANDOM_HOTEL_SUCCESS,
+        payload: dataRandom,
+      });
+  
+  }
   } catch (error) {
     yield put({
-      type: GET_AUTOCOMPLETE_FAIL,
+      type: GET_RANDOM_HOTEL_FAIL,
       payload: error,
     });
   }
@@ -184,7 +190,7 @@ export default function* hotelSaga(){
   yield takeEvery(GET_HOTEL_DETAIL, getHotelDetailSaga);
   yield takeEvery(CREATE_COMMENT, createCommentSaga);
   yield takeEvery(GET_COMMENT, getCommentSaga);
-  yield takeEvery(GET_AUTOCOMPLETE, getAutocompleteSaga);
+  yield takeEvery(GET_RANDOM_HOTEL, getRandomHotelSaga);
 
 
 

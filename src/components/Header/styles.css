@@ -61,7 +61,7 @@
 
 }
 .header-container-top-right span{
-  margin-left: 8px;
+  
   height: 24px;
   line-height: 24px;
 }
@@ -69,14 +69,45 @@
 .header-container-top-right button{
   display: flex;
   align-items: center;
-  margin-left: 12px;
+  margin-left: 14px;
+}
+
+.header-container-top-right-btn button
+{
+  border-radius: 4px;
+  min-width: 90px;
+  height: 35px;
+}
+.header-container-top-right-btn button span{
+  min-width: 60px;
+}
+.header-container-top-right-btn button:first-child
+{
+  border-color: #ffc600;
+  color: #ff9633;
+}
+.header-container-top-right-btn button:last-child{
+  background-color: #ff8917;
+  border-color: #ff8917;
+  color: #fff;
+}
+.header-container-top-right-btn button:last-child:hover,
+.header-container-top-right-btn button:last-child:active
+{
+  background-color: #ff9633;
+  border-color: #ff9633;
+  color: #fff;
 }
 .header-container-top-right-icon{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.header-container-top-right-icon:nth-child(1) span,
+.header-container-top-right-icon:nth-child(2) span
+{
+  margin-left: 4px;
+}
 .header-container-top-right-icon .icon-love{
   height: 24px;
   width: 24px;
@@ -101,7 +132,7 @@
 
 }
 
-.header-container-nav div{
+.header-container-nav>div{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,8 +140,27 @@
   height: 100%;
   border-left:1px solid #f1f1f1;
   border-right:1px solid #f1f1f1;
+  position: relative;
 
-
+}
+.header-container-nav>div::before{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #ff8917;
+  transition: all 0.3 ease;
+}
+.header-container-nav>div:hover> .header-container-nav>div::before{
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #ff8917;
 }
 .header-container-nav p{
  height: 24px;
@@ -167,6 +217,7 @@
 }
 
 .sidebar-vertical-item p{
+  margin: 0;
   height: 24px;
   line-height: 26px;
   margin-left:  8px;
@@ -185,7 +236,7 @@
   
 }
 .show-sidebar-vertical .sidebar-vertical-item:hover{
-  background-color: #5392f9;
+  background-color: #ffc600;
 }
 
 .hideWith-show-sidebar-vertical{

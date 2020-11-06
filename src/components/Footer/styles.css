@@ -1,10 +1,43 @@
 .footer {
-  height: 360px;
+  height: 340px;
+}
+/* ----------footer-city-------------- */
+.footer-city{
+  margin:20px 140px ;
+}
+.footer-city-title{
+  margin-bottom: 26px;
+  display: flex;
+}
+.footer-city-title h3{
+  width: fit-content;
+  margin: 0;
+}
+.footer-city-title span{
+  width: 80%;
+  border-bottom:1px solid #ccc;
+}
+.footer-city-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer-city-container span{
+  font-size: 13px;
+  width: 200px;
+  height: 30px;
+}
+.footer-city-container span:hover{
+  text-decoration: underline;
+}
+.city-item-both{
+  font-weight: 600;
 }
 
+
+
+/* ------------ footer-top-----------*/
 .footer-top{
   border-top: 1px solid #ccc ;
-
   display: flex;
   justify-content: space-between;
   margin: 0 140px;

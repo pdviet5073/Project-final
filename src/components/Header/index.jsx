@@ -60,11 +60,9 @@ function Header({account, getUserAccount}) {
   // log out
   const handelLogOut = () => {
     setCheckLoginHeader(false)
-    getUserAccount()
     localStorage.removeItem("user")
     setShowVerticalSidebar(false)
     history.push("/")
-    alert("ok")
   }
   //bật tắt sider bar bên trái
   const showSidebarVertical = () => {
@@ -90,12 +88,11 @@ function Header({account, getUserAccount}) {
             {
                 checkLoginHeader !=true
                 ? ( 
-                  <>
+                  <div className="header-container-top-right-btn">
                     <Button onClick={() => showPageLogin()}>Đăng nhập</Button>
                     <Button
-                    type="primary"
                     onClick={() => showPageSignUp()}>Đăng ký </Button>
-                  </>
+                  </div>
                   )
                 : (
                   <div className="header-container-top-right-icon pointer">
@@ -185,26 +182,28 @@ function Header({account, getUserAccount}) {
           <div className="sidebar-vertical-item pointer" >
             <img src={icontrogiup} alt="icontrogiup" />
             <p>Hỗ trợ</p>
-
-          </div>
-          <div className="sidebar-vertical-item pointer" onClick={() => handelLogOut()}>
-            <img src="https://www.clipartmax.com/png/small/292-2924736_logout-icon-png-blue.png" alt="icontrogiup" />
-            <p>Đăng xuất</p>
-
-          </div>
+            </div>
+            {checkLoginHeader===true &&(
+              
+              <div className="sidebar-vertical-item pointer" onClick={() => handelLogOut()}>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828490.svg" alt="icontrogiup" />
+                <p>Đăng xuất</p>
+    
+              </div>
+            )}
+          
 
         </div>
         <div
           className={`${showVerticalSidebar === true ? "showWith-show-sidebar-vertical " : "hideWith-show-sidebar-vertical "} `}
           onClick={() => hideSidebarVertical()}
-
         ></div>
       </div>
       <Login
         showLogin={showLogin}
         hidePageLogin={hidePageLogin}
         showPageLogin={showPageLogin}
-       showPageSignUp={showPageSignUp}
+        showPageSignUp={showPageSignUp}
         setCheckLoginHeader={setCheckLoginHeader}
       >
       </Login>
@@ -213,6 +212,7 @@ function Header({account, getUserAccount}) {
        hidePageSignUp={hidePageSignUp}
        showPageSignUp={showPageSignUp}
        showPageLogin={showPageLogin}
+       setCheckLoginHeader={setCheckLoginHeader}
 
       >
       </SignUp>
