@@ -3105,6 +3105,22 @@
       "lastName": "việt",
       "phone": "0868869736",
       "id": 5
+    },
+    {
+      "email": "Talaonghocdf@gmail.com",
+      "password": "123456",
+      "firstName": "Phạm",
+      "lastName": "việt",
+      "phone": "0868869736",
+      "id": 6
+    },
+    {
+      "email": "Talaongheoc@gmail.com",
+      "password": "123456",
+      "firstName": "Phạm",
+      "lastName": "việt",
+      "phone": "0868869736",
+      "id": 7
     }
   ],
   "comments": [
@@ -3767,6 +3783,30 @@
         "bad": "4"
       },
       "id": 55
+    },
+    {
+      "hotelId": 2,
+      "point": 10,
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "2",
+        "good": "2",
+        "bad": "2"
+      },
+      "id": 56
+    },
+    {
+      "hotelId": 2,
+      "point": "7.5",
+      "userName": "Phạm việt",
+      "userId": 1,
+      "status": {
+        "comment": "tốt",
+        "good": "1",
+        "bad": "2"
+      },
+      "id": 57
     }
   ],
   "tempBooking": {}

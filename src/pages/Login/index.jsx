@@ -194,7 +194,7 @@ function Login({
       </Modal>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={2500}
         hideProgressBar
         newestOnTop={false}
         closeOnClick

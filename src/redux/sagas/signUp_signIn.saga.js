@@ -20,9 +20,9 @@ function* createUserAccountSaga(action) {
     const dataCheck = responseCheck.data;
     console.log('Log: : function*createUserAccountSaga -> dataCheck', dataCheck.length);
     if(dataCheck.length>0){
-      toast('😲 Tên tài khoản đã tồn tại', {
+      toast('🤔 Tên tài khoản đã tồn tại', {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -64,9 +64,9 @@ function* getUserAccountSaga(action) {
       payload: data[0],
     });
   } else {
-    toast('😲 Tài khoản hoặc mật khẩu chưa đúng', {
+    toast('🤔 Tài khoản hoặc mật khẩu chưa đúng', {
       position: "top-center",
-      autoClose: 3000,
+      autoClose: 2500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

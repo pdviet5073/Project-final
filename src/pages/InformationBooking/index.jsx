@@ -14,7 +14,6 @@ function InformationBooking({
   createTempBooking,
 }) {
   const [checkPersonCheckIn, setCheckPersonCheckIn] = useState(true)
-  console.log('Log: : checkPersonCheckIn', checkPersonCheckIn);
   const [form] = Form.useForm();
   const roomId = match.params.idRoom;
   const place = match.params.place;

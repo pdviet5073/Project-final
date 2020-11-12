@@ -37,7 +37,7 @@ function Home() {
               <Input placeholder="Nhập địa điểm, khách sạn"></Input>
             </div>
             <div className="home-slide-search-dateTime">
-              <RangePicker disabledDate={disabledDate} />
+              <RangePicker disabledDate={disabledDate}  placeholder={["Ngày đến", "Ngày đi"]}/>
               <div className="people">
                 <Input placeholder="Nhập số người"></Input>
               </div>

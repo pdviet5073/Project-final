@@ -158,7 +158,6 @@ function Hotel({
   };
 
   const handelChangeSearch = (value) => {
-    console.log('Log: : handelChangeSearch -> value', value.target.value);
     if(value.target.value.length===0){
       setSearchKey("");
       
@@ -173,7 +172,6 @@ function Hotel({
   };
 
   //search bằng name. nếu search sao có dữ liệu thì filter trên list của search sao. còn không có sẽ là list hotel
-  console.log('Log: : searchKey', searchKey);
   const filterSearchListData = (
     (searchHotelList.length > 0 &&
       isShowSearchList == true &&
@@ -184,7 +182,6 @@ function Hotel({
         return item.name.toLowerCase().indexOf(searchKey.toLowerCase()) !== -1;
       });
       
-      console.log('Log: : filterSearchListData', filterSearchListData);
   //dùng gán dữ liệu để in list nào [hotelList , searchList] trong hàm render list khách sạn
   const newList = () => {
     if (isShowSearchList) {

@@ -104,7 +104,7 @@ function Header({account, getUserAccount}) {
           </div>
         </div>
         <div className="header-container-nav">
-          <div className="hotel pointer">
+          <div className="hotel pointer" onClick={() =>history.push("/")}>
             <img src={iconkhachsan} alt="" />
             <p>Khách sạn</p>
           </div>

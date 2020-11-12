@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import history from "../../util/history";
 import { connect } from 'react-redux';
-import { getRoomBooking, getHotelDetail,createTempBooking } from "../../redux/actions";
+import { getRoomBooking,createTempBooking } from "../../redux/actions";
 import {
   Rate,
 Input
@@ -18,8 +18,7 @@ function InforRoomBooking({
   createTempBooking,
   roomBooking,
   getRoomBooking,
-  hotelDetail,
-  getHotelDetail,
+
 }) {
   const dateTime = JSON.parse(sessionStorage.getItem("date"));
   const infoUserBooking = JSON.parse(sessionStorage.getItem("infoUserBooking"));
@@ -200,17 +199,14 @@ function InforRoomBooking({
 
 const mapStateToProps = (state) => {
   const { roomBooking,tempBooking } = state.bookingReducer;
-  const { hotelDetail } = state.hotelReducer;
   return {
     roomBooking,
-    hotelDetail,
     tempBooking
   }
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     getRoomBooking: (params) => dispatch(getRoomBooking(params)),
-    getHotelDetail: (params) => dispatch(getHotelDetail(params)),
     createTempBooking: (params) => dispatch(createTempBooking(params)),
 
     

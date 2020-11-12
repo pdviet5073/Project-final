@@ -167,7 +167,7 @@ function HotelDetail({
         limit: 5,
       });
       form.resetFields();
-      toast.info("🦄 Cảm ơn bạn đã đóng góp ý kiến!", {
+      toast.info("😘 Cảm ơn bạn đã đóng góp ý kiến!", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -197,7 +197,7 @@ function HotelDetail({
       history.push(`/booking/${place}/${hotelId}/${roomItem.id}/step-1`);
     } else {
       // show modal hiển thị thông báo chưa đăng nhập
-      toast.info("🦄 Đăng nhập để thực hiện thao tác này!", {
+      toast.info("😒 Đăng nhập để thực hiện thao tác này!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -669,7 +669,7 @@ function HotelDetail({
             <div className="create-comment-point">
               <div className={ 
                  averageValue > 8
-                ?"create-comment-chart-point"
+                ?"point-highest"
                  :(averageValue >= 6.5 && averageValue <= 8)
                  ? "point-above-average"
                  : (averageValue >= 5 && averageValue < 6.5)
@@ -873,16 +873,16 @@ function HotelDetail({
         pauseOnHover
       />
       <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+position="top-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
       {/* Same as */}
       <ToastContainer />
     </div>

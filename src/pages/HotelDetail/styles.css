@@ -329,18 +329,23 @@
 /* -----------------rooms-item-more------------------ */
 
 .hide-rooms-item-more{
+  padding: 0 20px;
+  display: flex;
 
   height: 0px ;
   overflow: hidden;
-  transition: all 0.5 ease-in-out;
+  transition: all 0.4s ease;
 
 }
 .rooms-item-more{
   display: flex;
   padding: 10px 20px;
+  overflow: hidden;
+
   border-bottom: 1px solid #ccc;
   height: 225px;
-  transition: all 0.5 ease-in-out;
+  transition: all 0.5s ease;
+
 }
 
 .rooms-item-more-left div{
@@ -392,11 +397,15 @@
 }
 /* ----------------rooms-item-bottom---------- */
 .rooms-item-bottom{
+  position: relative;
+  z-index: 9999999;
+  background-color: #fff;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
-  margin-left: 95px;
   padding:  20px;
+  padding-left: 95px;
   height: fit-content;
 }
 .rooms-item-bottom-item {
@@ -464,7 +473,7 @@
   height: 200px;
   
 }
-.create-comment-chart-point,
+.point-highest,
 .point-above-average,
 .point-average,
 .point-least
@@ -484,19 +493,21 @@
 
 }
 /* set màu cho vòng tròn điểm */
-.create-comment-chart-point .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+.point-highest .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
   stroke: #428dc5 !important;
 }
 .point-above-average .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
   stroke: #ff8917 !important;
 }
 .point-average .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
-  stroke: yellow !important;
+  stroke: #ffcd1a !important;
 }
 .point-least .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
   stroke: red !important;
 }
-.create-comment-chart-point >span:last-child,
+
+/*  text đánh giá trong vòng tròn điểm*/
+.point-highest >span:last-child,
 .point-above-average >span:last-child,
 .point-least >span:last-child{
   position: absolute;
@@ -504,8 +515,32 @@
   width: 100%;
   text-align: center;
   font-size: 34px;
-  color: #428dc5;
 }
+
+/* set màu chữ trùng với màu của vòng tròn */
+.point-highest >span:last-child,
+.point-highest  .ant-progress-text
+{
+  color: #428dc5 !important;
+
+}
+.point-above-average >span:last-child,
+.point-above-average  .ant-progress-text
+{
+  color: #ff8917 !important;
+}
+.point-average >span:last-child,
+.point-average  .ant-progress-text
+{
+  color: #ffcd1a !important;
+}
+.point-least >span:last-child,
+.point-least  .ant-progress-text
+{
+  color: red !important;
+}
+
+/* style khi chữ là chập nhận được */
 .point-average >span:last-child{
   position: absolute;
   top: 50%;
@@ -514,6 +549,7 @@
   font-size: 27px;
   color: #428dc5;
 }
+
 .create-comment-point-left{
   width: 75%;
   display: flex;
