@@ -85,7 +85,6 @@ function Hotel({
 
   //sort  giá thấp đến cao
   const handelSort = (e) => {
-    console.log('Log: : handelSort -> e.target.value', e.target.value);
     if (e.target.value == "bestFit") {
       setIsShowSearchList(false);
     }
@@ -202,8 +201,6 @@ function Hotel({
   //     return hotelList;
   //   }
   // };
-  console.log('Log: : newList -> newList', newList());
-  console.log('Log: : newList -> searchHotelList.length', searchHotelList.length);
 
   //render  list khách sạn
   const renderHotelList = () => {

@@ -398,7 +398,7 @@
 /* ----------------rooms-item-bottom---------- */
 .rooms-item-bottom{
   position: relative;
-  z-index: 9999999;
+  z-index: 999;
   background-color: #fff;
   display: flex;
 
