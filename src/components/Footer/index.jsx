@@ -5,17 +5,17 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 
 function Footer() {
-  const arrCity = ["Khách sạn An Giang","Khách sạn Bà Rịa - Vũng Tàu","Khách sạn Bạc Liêu","Khách sạn Bạc Liêu",
+  const arrCity = ["Khách sạn An Giang","Khách sạn Bà Rịa - Vũng Tàu","Khách sạn Bạc Liêu",
                   "Khách sạn Bình Dương","Khách sạn Bình Thuận","Khách sạn Cà Mau","Khách sạn Cần Thơ",
                   "Khách sạn Đà Nẵng","Khách sạn Điện Biên","Khách sạn Đồng Nai","Khách sạn Hà Giang",
                   "Khách sạn Hà Nội","Khách sạn Hải Dương","Khách sạn Hải Phòng","Khách sạn Tp.Hồ Chí Minh",
-                  "Khách sạn Khánh Hòa","Khách sạn Lai Châu","Khách sạn Lạng Sơn ","Khách sạn Lào Cai",
-                  "Khách sạn Lâm Đồng","Khách sạn Nghệ An","Khách sạn Ninh Bình","Khách sạn Quảng Bình",
+                  "Khách sạn Khánh Hòa","Khách sạn Lai Châu","Khách sạn Lạng Sơn ",
+                  "Khách sạn Lâm Đồng","Khách sạn Lào Cai","Khách sạn Nghệ An","Khách sạn Ninh Bình","Khách sạn Quảng Bình",
                   "Khách sạn Quảng Nam","Khách sạn Quảng Ngãi","Khách sạn Quảng Ninh","Khách sạn Quảng Trị",
                   "Khách sạn Sóc Trăng","Khách sạn Sơn La","Khách sạn Tây Ninh","Khách sạn Thái Bình",
                   "Khách sạn Thái Nguyên","Khách sạn Thanh Hóa","Khách sạn Thừa Thiên - Huế","Khách sạn Tiền Giang",
                   "Khách sạn Trà Vinh","Khách sạn Tuyên Quang","Khách sạn Vĩnh Long","Khách sạn Vĩnh Phúc",
-                  "Khách sạn Yên Bái" ];
+                  "Khách sạn Yên Bái","Khách sạn Cao Bằng","Khách sạn Gia Lai" ];
 
   const renderCity = () => {
    return arrCity.map((item, index) => (
@@ -30,7 +30,7 @@ function Footer() {
   
   return (
     <div className="footer">
-      <div className="footer-city">
+      <div className="footer-city container">
         <div className="footer-city-title">
         <h3><b>Khách sạn theo tỉnh thành phố</b></h3>
         <span></span>
@@ -39,7 +39,7 @@ function Footer() {
           {renderCity()}
         </div>
       </div>
-      <div className="footer-top">
+      <div className="footer-top container">
         <div className="footer-top-col-1">
           <div>
            <p>   Về Arya</p>
@@ -81,22 +81,24 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer-bottom">
-        <div className="footer-bottom-left">Bản quyền thuộc về Arya</div>
+      <div className="footer-bottom ">
+       <div className="container  footer-bottom-container">
+       <div className="footer-bottom-left">Bản quyền thuộc về Arya</div>
         <div className="footer-bottom-right">
-          <a href="">
+          <a href="#">
             <FaFacebookSquare />
             <span>Facebook</span>
           </a>
-          <a href="">
+          <a href="#">
             <FaInstagram />
             <span>Instagram</span>
           </a>
-          <a href="">
+          <a href="#">
             <AiOutlineYoutube />
             <span>YouTube</span>
           </a>
         </div>
+       </div>
       </div>
     </div>
   );

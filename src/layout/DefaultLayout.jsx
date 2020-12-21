@@ -12,7 +12,7 @@ function DefaultLayout({ component: Component, ...props }) {
       {...props}
       render={(routerProps) => (
         <>
-          <Header {...routerProps}/>
+          <Header {...routerProps} />
           <div className="main">
             <Component {...routerProps} />
           </div>

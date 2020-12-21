@@ -1,5 +1,5 @@
-import { put, takeEvery } from 'redux-saga/effects';
-import axios from 'axios';
+import { put, takeEvery } from "redux-saga/effects";
+import axios from "axios";
 
 import {
   GET_HOTEL_LIST,
@@ -19,20 +19,20 @@ import {
   GET_COMMENT_FAIL,
   GET_RANDOM_HOTEL,
   GET_RANDOM_HOTEL_SUCCESS,
-  GET_RANDOM_HOTEL_FAIL
-} from '../constants';
+  GET_RANDOM_HOTEL_FAIL,
+} from "../constants";
 
-function* getHotelListSaga(action){
+function* getHotelListSaga(action) {
   try {
-    const { page, limit ,place } = action.payload;
+    const { page, limit, place } = action.payload;
     const response = yield axios({
-      method: 'GET',
-      url: 'http://localhost:3001/hotel',
+      method: "GET",
+      url: "http://localhost:3001/hotel",
       params: {
-        place:place,
-        ...page&&{_page: page},
-        ...limit &&{_limit: limit},
-      }
+        place: place,
+        ...(page && { _page: page }),
+        ...(limit && { _limit: limit }),
+      },
     });
     const data = response.data;
     yield put({
@@ -47,27 +47,33 @@ function* getHotelListSaga(action){
   }
 }
 
-function* getSearchHotelSaga(action){
+function* getSearchHotelSaga(action) {
   try {
-    const { rate, sort, rangePrice,page, place} = action.payload;
+    const { rate, sort, rangePrice, page, place } = action.payload;
     const response = yield axios({
-      method: 'GET',
-      url: 'http://localhost:3001/hotel',
+      method: "GET",
+      url: "http://localhost:3001/hotel",
       params: {
-        place:place,
+        place: place,
         _page: page,
         _limit: 10,
         rate: rate,
-        ...sort && (sort=="point"? {_sort: `point`, _order: "desc" }: {_sort: `defaultPrice`, _order: sort }),
-        ...rangePrice && {defaultPrice_gte: rangePrice[0], defaultPrice_lte: rangePrice[1]}
-      }
+        ...(sort &&
+          (sort == "point"
+            ? { _sort: `point`, _order: "desc" }
+            : { _sort: `defaultPrice`, _order: sort })),
+        ...(rangePrice && {
+          defaultPrice_gte: rangePrice[0],
+          defaultPrice_lte: rangePrice[1],
+        }),
+      },
     });
     const data = response.data;
     yield put({
       type: GET_SEARCH_HOTEL_LIST_SUCCESS,
       payload: data,
     });
-    } catch (error) {
+  } catch (error) {
     yield put({
       type: GET_SEARCH_HOTEL_LIST_FAIL,
       payload: error,
@@ -75,32 +81,26 @@ function* getSearchHotelSaga(action){
   }
 }
 
-function* getHotelDetailSaga(action){
+function* getHotelDetailSaga(action) {
   try {
-    const {id} = action.payload;
+    const { id } = action.payload;
     const responseHotel = yield axios({
-      method: 'GET',
+      method: "GET",
       url: `http://localhost:3001/hotel?id=${id}`,
     });
     const responseRoom = yield axios({
-      method: 'GET',
+      method: "GET",
       url: `http://localhost:3001/rooms?hotelId=${id}`,
     });
-   
-   
-    const responseComment = yield axios(
-      {
-        method: 'GET',
-        url: `http://localhost:3001/comments?hotelId=${id}`,
-      }
-    );
+
+    const responseComment = yield axios({
+      method: "GET",
+      url: `http://localhost:3001/comments?hotelId=${id}`,
+    });
     const dataHotels = responseHotel.data;
     const dataComments = responseComment.data;
     const dataRooms = responseRoom.data;
-    const data = [...dataHotels,dataComments,...dataRooms]
-  
-
-  
+    const data = [...dataHotels, dataComments, ...dataRooms];
 
     yield put({
       type: GET_HOTEL_DETAIL_SUCCESS,
@@ -114,9 +114,12 @@ function* getHotelDetailSaga(action){
   }
 }
 
-function* createCommentSaga(action){
+function* createCommentSaga(action) {
   try {
-    const response = yield axios.post(`http://localhost:3001/comments`, action.payload);
+    const response = yield axios.post(
+      `http://localhost:3001/comments`,
+      action.payload
+    );
     const data = response.data;
     yield put({
       type: CREATE_COMMENT_SUCCESS,
@@ -130,19 +133,19 @@ function* createCommentSaga(action){
   }
 }
 
-function* getCommentSaga(action){
+function* getCommentSaga(action) {
   try {
-    const {id, page, limit} = action.payload;
+    const { id, page, limit } = action.payload;
     const response = yield axios({
-      method: 'GET',
+      method: "GET",
       url: `http://localhost:3001/comments`,
-      params:{
+      params: {
         hotelId: id,
-        _page:page,
+        _page: page,
         _limit: limit,
-        _sort:"id",
-        _order:"desc"
-      }
+        _sort: "id",
+        _order: "desc",
+      },
     });
     const data = response.data;
     yield put({
@@ -156,27 +159,35 @@ function* getCommentSaga(action){
     });
   }
 }
-function* getRandomHotelSaga(action){
+function* getRandomHotelSaga(action) {
   try {
     const { place } = action.payload;
     const response = yield axios({
-      method: 'GET',
-      url: 'http://localhost:3001/hotel',
+      method: "GET",
+      url: "http://localhost:3001/hotel",
       params: {
-        place:place
-      }})
+        place: place,
+      },
+    });
     const data = response.data;
-    if(data.length>0){
+    if (data.length > 0) {
       const Rand = data[Math.floor(Math.random() * data.length)];
-      const Rand1 = data[Math.floor(Math.random() * data.length)];
-      const Rand2 = data[Math.floor(Math.random() * data.length)];
+      let Rand1;
+      let Rand2;
+      do {
+        Rand1 = data[Math.floor(Math.random() * data.length)];
+        Rand2 = data[Math.floor(Math.random() * data.length)];
+      } while (
+        JSON.stringify(Rand1) === JSON.stringify(Rand) ||
+        JSON.stringify(Rand) === JSON.stringify(Rand2) ||
+        JSON.stringify(Rand1) === JSON.stringify(Rand2)
+      );
       const dataRandom = [Rand, Rand1, Rand2];
       yield put({
         type: GET_RANDOM_HOTEL_SUCCESS,
         payload: dataRandom,
       });
-  
-  }
+    }
   } catch (error) {
     yield put({
       type: GET_RANDOM_HOTEL_FAIL,
@@ -184,15 +195,11 @@ function* getRandomHotelSaga(action){
     });
   }
 }
-export default function* hotelSaga(){
+export default function* hotelSaga() {
   yield takeEvery(GET_HOTEL_LIST, getHotelListSaga);
   yield takeEvery(GET_SEARCH_HOTEL_LIST, getSearchHotelSaga);
   yield takeEvery(GET_HOTEL_DETAIL, getHotelDetailSaga);
   yield takeEvery(CREATE_COMMENT, createCommentSaga);
   yield takeEvery(GET_COMMENT, getCommentSaga);
   yield takeEvery(GET_RANDOM_HOTEL, getRandomHotelSaga);
-
-
-
-
 }

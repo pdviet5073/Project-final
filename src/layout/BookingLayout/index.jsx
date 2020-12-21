@@ -13,7 +13,7 @@ function BookingLayout({ component: Component, ...props }) {
       render={(routerProps) => (
         <>
           <Header {...routerProps}/>
-          <div className="main-booking">
+          <div className="container main-booking">
             <Component setCheckPagePay={setCheckPagePay} checkPagePay={checkPagePay} {...routerProps} />
             <InforRoomBooking setCheckPagePay={setCheckPagePay} checkPagePay={checkPagePay} {...routerProps}/>
           </div>

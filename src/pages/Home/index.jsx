@@ -28,7 +28,7 @@ function Home() {
   }
 
   return (
-    <div className="home ">
+    <div className="home">
       <div className="home-slide">
         <div className="home-slide-container">
           <div className="home-slide-title"></div>
@@ -82,7 +82,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="home-container">
+      <div className="home-container container">
         <div className="home-content">
           <div className="home-content-vn">
             <h2>
@@ -244,11 +244,11 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="home-commitment">
+      <div className="home-commitment ">
         <h2>
           <b>CAM KẾT ĐẾN TỪ ARYA</b>
         </h2>
-        <div className="home-commitment-container">
+        <div className="home-commitment-container container">
           <div className="home-commitment-content">
             <div >
               <img src={capnhatxuhuong} alt="" />
@@ -290,19 +290,19 @@ function Home() {
         </div>
       </div>
      
-      <div className="home-mentioned">
+      <div className="home-mentioned container">
         <h2>
           <b>Arya.com đã được nhắc đến</b>
         </h2>
-        <div className="home-mentioned-container">
+        <div className="home-mentioned-container ">
           <img
             className="pointer"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/VTV3_logo_2013_final.svg/1024px-VTV3_logo_2013_final.svg.png"
             alt="vtv"
           />
           <img
-            className="pointer"
-            src="https://marketingreview.vn/wp-content/uploads/2020/05/vne.png"
+            className="pointer vnexpress"
+            src="https://s1.vnecdn.net/vnexpress/restruct/i/v365/v2_2019/pc/graphics/logo.svg"
             alt="vtv"
           />
           <img

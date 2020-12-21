@@ -488,6 +488,7 @@ function HotelDetail({
   };
 
   const handleChange = (value, index) => {
+    // eslint-disable-next-line default-case
     switch (index) {
       case 0:
         setValue1(value);
@@ -593,12 +594,12 @@ function HotelDetail({
               <Rate disabled allowHalf defaultValue={itemRandom.rate}></Rate>
             </div>
             <div className="hotelDetail-nominations-information-address">
-              <img src={iconmaps} alt="iconmaps" />
               <Tooltip
                 placement="topLeft"
                 title={itemRandom.address}
                 color="#ff9633"
               >
+                <img src={iconmaps} alt="iconmaps" />
                 <span>{itemRandom.address}</span>
               </Tooltip>
             </div>
@@ -625,7 +626,7 @@ function HotelDetail({
   };
   return (
     <div className="hotelDetail">
-      <div className="hotelDetail-container">
+      <div className="container hotelDetail-container">
         <div className="hotelDetail-header">{renderHotelDetailImages()}</div>
 
         <div className="hotelDetail-body">
@@ -667,15 +668,17 @@ function HotelDetail({
           <div className="create-comment">
             <h2>Bạn đánh giá khách sạn này như thế nào?</h2>
             <div className="create-comment-point">
-              <div className={ 
-                 averageValue > 8
-                ?"point-highest"
-                 :(averageValue >= 6.5 && averageValue <= 8)
-                 ? "point-above-average"
-                 : (averageValue >= 5 && averageValue < 6.5)
-                 ? "point-average"
-                 :  "point-least"
-              }>
+              <div
+                className={
+                  averageValue > 8
+                    ? "point-highest"
+                    : averageValue >= 6.5 && averageValue <= 8
+                    ? "point-above-average"
+                    : averageValue >= 5 && averageValue < 6.5
+                    ? "point-average"
+                    : "point-least"
+                }
+              >
                 <Progress
                   type="circle"
                   percent={averageValue * 10}
@@ -683,7 +686,6 @@ function HotelDetail({
                   status="ok"
                   width={200}
                   strokeWidth={3}
-                  
                 />
                 <span className="create-comment-chart-text">
                   {averageValue >= 9 ? (
@@ -873,16 +875,16 @@ function HotelDetail({
         pauseOnHover
       />
       <ToastContainer
-position="top-right"
-autoClose={3000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       {/* Same as */}
       <ToastContainer />
     </div>

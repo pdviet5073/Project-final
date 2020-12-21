@@ -1,5 +1,5 @@
 
-.home ,.home-slide ,.home-slide-containe{
+.home ,.home-slide ,.home-slide-container{
   width: 100%;
   height: fit-content;
 }
@@ -109,21 +109,25 @@
  
 }
 .home-content {
-  padding: 200px 150px 40px ;
+  padding: 200px 0 40px ;
 
 }
 
-.vn-item img,
-.world-item img
+.vn-item  ,
+.world-item 
 {
   border-radius: 4px  ;
-	transform: scale(1);
-	transition:all  .3s ease-in-out;
+  overflow: hidden;
+}
+.vn-item img,
+.world-item img{
+	transition: all  .7s ease-out;
+
 }
 .vn-item:hover img,
 .world-item:hover img
 {
-  transform: scale(1.02);
+  transform: scale(1.1);
  
 }
 .home-content-vn h2,
@@ -250,7 +254,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 150px;
+  padding: 40px 0;
 }
 .home-commitment-container{
   width: 100%;
@@ -291,7 +295,7 @@
 }
 /* ----------------home-mentioned--------------- */
 .home-mentioned{
-  margin: 40px 150px;
+  margin: 40px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,14 +304,21 @@
   text-align: center;
 }
 .home-mentioned-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 30px;
-  width: fit-content;
 }
 .home-mentioned-container img{
-  margin-right: 80px;
-  width: 110px;
+  display:block;
+  width: 120px;
   object-fit: cover;
 }
 .tinhte, .vecom{
   width: 70px !important;
+}
+.vnexpress{
+  width: 150px !important;
+  object-fit: contain !important;
+
 }
