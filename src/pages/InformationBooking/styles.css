@@ -1,9 +1,9 @@
 .information-booking{
   width: 65%;
   height: fit-content;
-  padding: 10px;
-  margin-right:40px;
-  box-shadow: 3px 4px 10px rgba(0,0,0,0.075);
+  padding: 1rem;
+  margin-right:4rem;
+  box-shadow: 3px 4px 1rem rgba(0,0,0,0.075);
 
 }
 .information-booking >div>div:first-child{
@@ -11,7 +11,7 @@
 }
 .information-booking h3{
   width: fit-content;
-  padding-bottom: 6px;
+  padding-bottom: 0.6rem;
   margin-bottom: -1px;
   border-bottom: 2px solid #ff8917;
 }
@@ -19,11 +19,11 @@
 .information-user-line-1th{
   display: flex;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 3rem;
 }
 .information-user-line-1th>div:first-child{
-  width: 480px;
-  margin-right: 30px;
+  width: 48rem;
+  margin-right: 3rem;
   
 }
 .information-user-line-1th>div:last-child{
@@ -32,13 +32,13 @@
 
 .information-user-line-2th{
   display: flex;
-  margin-top: 30px;
+  margin-top: 3rem;
 }
 
 .information-user-line-2th>div:first-child
 {
-  margin-right: 30px;
-  width: 280px
+  margin-right: 3rem;
+  width: 28rem;
 
 }
 .information-user-line-2th>div:last-child
@@ -56,27 +56,27 @@
   justify-content: flex-end;
 }
 .information-user-btn button:last-child{
-  width: 120px;
+  width: 12rem;
   background-color: #ff8917;
-  margin-left: 30px;  
+  margin-left: 3rem;  
   color: #fff;
   border: #ff8917;
 }
 
 .person-check-in-room{
-  margin: 10px 0;
+  margin: 1rem 0;
   
 }
 .person-check-in-room-info{
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 .person-check-in-room-info >div:last-child{
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 .person-check-in-room-info >div:last-child>div{
-  width: 350px;
+  width: 35rem;
   
 }

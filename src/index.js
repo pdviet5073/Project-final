@@ -26,7 +26,6 @@ import mySaga from './redux/sagas';
 
 import * as serviceWorker from './serviceWorker';
 
-import './reset.css';
 import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();

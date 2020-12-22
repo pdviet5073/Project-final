@@ -192,18 +192,7 @@ function Login({
           </div>
         </div>
       </Modal>
-      <ToastContainer
-        position="top-center"
-        autoClose={2500}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        transition={Slide}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+     
     </div>
   );
 }

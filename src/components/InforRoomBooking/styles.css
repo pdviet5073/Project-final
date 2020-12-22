@@ -6,17 +6,17 @@
 .information-room-container{
   padding: 20px;
   box-shadow: 1px 1px 9px rgba(0,0,0,.09);
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .information-room-content>h2{
   width: fit-content;
   border-bottom: 2px solid #ff8917;
   padding-bottom: 6px;
-  margin-bottom: 14px;
+  margin-bottom: 1.4rem;
 }
 .info-hotel{
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 }
 .space-between{
   display: flex;
@@ -30,13 +30,13 @@
 }
 .information-room-image  img{
   width: 100%;
-  height: 200px;
+  height: 20rem;
   object-fit: cover;
   box-shadow: 3px 6px 10px rgba(0,0,0,0.1);
 }
 .information-room-title{
   margin: 10px 0 4px 0 ;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
   
 }
@@ -48,8 +48,8 @@
   margin-bottom: 8px;
 }
 .information-room-address img{
-  width: 14px;
-  height: 14px;
+  width: 1.4rem;
+  height: 1.4rem;
   justify-content: space-between;
   margin-right: 4px;
 }
@@ -57,13 +57,13 @@
   margin: 0;
 }
 .total-price{
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 1rem;
+  padding-top: 1rem;
   border-top: 1px solid #ccc;
 }
 /* -----------information-room-code-discount------- */
 .information-room-code-discount>div{
-  padding: 20px;
+  padding: 2rem;
   height: fit-content;
   box-shadow: 3px 6px 10px rgba(0,0,0,0.1);
   
@@ -81,8 +81,8 @@
 .information-room-user{
   width: 100%;
   height: fit-content;
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 2rem;
+  padding: 2rem;
   box-shadow: 3px 6px 10px rgba(0,0,0,0.1);
 
 }
@@ -92,7 +92,7 @@
 }
 .information-room-user>div:first-child h3{
   width: fit-content;
-  padding: 10px;
+  padding: 1rem;
     margin-bottom: -1px;
   border-bottom: 1px solid #ff8917;
 }

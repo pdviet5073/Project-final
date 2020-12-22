@@ -64,7 +64,7 @@ function* getUserAccountSaga(action) {
       payload: data[0],
     });
   } else {
-    toast('🤔 Tài khoản hoặc mật khẩu chưa đúng', {
+    toast('🙂 Tài khoản hoặc mật khẩu chưa đúng', {
       position: "top-center",
       autoClose: 2500,
       hideProgressBar: false,

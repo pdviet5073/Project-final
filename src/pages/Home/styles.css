@@ -7,9 +7,9 @@
   position: relative;
 }
 .home-slide-search{
-  padding: 16px;
+  padding: 1.6rem;
   background: rgb(0,0,0,0.5);
-  width: 600px;
+  width: 60rem;
   height: fit-content ;
   position: absolute;
   top: 50%;
@@ -21,29 +21,29 @@
 
 .home-slide-search .ant-input {
   display: inline-block;
-  height: 55px;
+  height: 5.5rem;
 }
 .home-slide-search .ant-picker  {
   display: flex ;
-  height: 55px;
-  width: 300px;
+  height: 5.5rem;
+  width: 30rem;
   z-index: 111;
 }
 .ant-picker-input{
   width: 40%;
 }
 .ant-picker-range-separator{
-  width: 30px;
+  width: 3rem;
 }
 .ant-picker-suffix svg{
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
 }
 .people{
-  width: 120px;
+  width: 12rem;
   background-color: #fff;
-  margin-left: 10px;
-  height: 55px;
+  margin-left: 1rem;
+  height: 5.5rem;
   border-radius: 2px;
 }
 
@@ -51,8 +51,8 @@
 
 .home-slide-search .ant-btn {
   display: inline-block;
-  height: 55px;
-  margin-left: 10px;
+  height: 5.5rem;
+  margin-left: 1rem;
   background-color: #ff8917;
   border: #ff8917;
   color: #fff;
@@ -60,7 +60,7 @@
 .ant-btn
 
 .ant-picker-header{
-  height: 42px;
+  height: 4.1rem;
 }
 .ant-picker-header-view{
   display: flex;
@@ -68,7 +68,7 @@
 
 .home-slide-search-dateTime{
   display: flex;
-  margin-top: 20px;
+  margin-top: 2rem;
   justify-content: space-between;
 }
 
@@ -80,7 +80,7 @@
  
   position: absolute;
   left: 50%;
-  bottom: -52px;
+  bottom: -5.2rem;
   transform: translate(-50%, 50%);
   display: flex;
   width: fit-content;
@@ -91,17 +91,17 @@
 }
 .home-slide-service-item{
   
-  width: 350px;
-  height: 200px;
-  margin: 0 10px;
-  padding: 15px 12px;
+  width: 35rem;
+  height: 20rem;
+  margin: 0 1rem;
+  padding: 1.5rem 1.2rem;
   background-color: #fff;
   border-radius: 4px;
   text-align: center;
   box-shadow: 0 2px 9px rgba(0,0,0,.15);
 }
 .home-slide-service-item img{
-  margin-bottom:10px ;
+  margin-bottom:1rem ;
 
 }
 /* ----------------------------- */
@@ -109,7 +109,7 @@
  
 }
 .home-content {
-  padding: 200px 0 40px ;
+  padding: 20rem 0 4rem ;
 
 }
 
@@ -136,10 +136,10 @@
   text-align: center;
 }
 .vn-container{
-  min-height: 800px;
+  min-height: 80rem;
   display: grid;
-  grid-template: 184px 184px 184px 184px/ 1fr 1fr 1fr ;
-  grid-gap: 13px;
+  grid-template: repeat(4,18.4rem)/ 1fr 1fr 1fr ;
+  grid-gap: 1.3rem;
   
 }
 
@@ -158,9 +158,9 @@
 .vn-item h3{
   position: absolute;
   bottom:  0;
-  left: 10px;
+  left: 1rem;
   z-index: 2;
-  font-size: 26px;
+  font-size: 2.6rem;
   color: #fff;
 }
 .vn-item img{
@@ -206,12 +206,12 @@
 }
 /* ------------------world------------- */
 .main-home-content-world{
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 .world-container{
 
   display: grid;
-  grid-template: 190px 190px/ 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template: repeat(2,19rem) 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 13px;
   
 }
@@ -239,9 +239,9 @@
 .world-item h3{
   position: absolute;
   bottom:  0;
-  left: 10px;
+  left: 1rem;
   z-index: 2;
-  font-size: 26px;
+  font-size: 2.6rem;
   color: #fff;
 }
 .world-item img{
@@ -254,7 +254,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 4rem 0;
 }
 .home-commitment-container{
   width: 100%;
@@ -265,21 +265,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px ;
+  margin-top: 3rem ;
 }
 .home-commitment-content>div{
   display: flex;
   align-items: center;
-  width: 320px;
+  width: 32rem;
 }
 .home-commitment-content>div h2{
-  margin: 10px 0 0 10px;
+  margin: 1rem 0 0 1rem;
 }
 /* ---------------home-partner------------- */
 .home-partner{
   display: flex;
   justify-content: space-between;
-  padding: 40px 150px;
+  padding: 4rem 15rem;
 
 }
 .home-partner-container{
@@ -289,13 +289,13 @@
 }
 .home-partner-container img{
   display: inline-block;
-  width: 80px;
-  height: 40px;
-  margin: 10px;
+  width: 8rem;
+  height: 4rem;
+  margin: 1rem;
 }
 /* ----------------home-mentioned--------------- */
 .home-mentioned{
-  margin: 40px 0;
+  margin: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -307,18 +307,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 3rem;
 }
 .home-mentioned-container img{
   display:block;
-  width: 120px;
+  width: 12rem;
   object-fit: cover;
 }
 .tinhte, .vecom{
-  width: 70px !important;
+  width: 7rem !important;
 }
 .vnexpress{
-  width: 150px !important;
+  width: 15rem !important;
   object-fit: contain !important;
 
 }

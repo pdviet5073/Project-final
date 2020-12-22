@@ -20,6 +20,7 @@ import {
 } from "@ant-design/icons";
 
 import { ToastContainer, toast } from "react-toastify";
+import { Slide, Zoom, Flip, Bounce } from "react-toastify";
 import moment from "moment";
 import Slider from "react-slick";
 import ImageGallery from "react-image-gallery";
@@ -175,9 +176,11 @@ function HotelDetail({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        transition: Flip,
+
       });
     } else {
-      toast.info("🦄 Đăng nhập để thực hiện thao tác này!", {
+      toast.info("🙂 Đăng nhập để thực hiện thao tác này!!!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -197,7 +200,7 @@ function HotelDetail({
       history.push(`/booking/${place}/${hotelId}/${roomItem.id}/step-1`);
     } else {
       // show modal hiển thị thông báo chưa đăng nhập
-      toast.info("😒 Đăng nhập để thực hiện thao tác này!", {
+      toast.info("🙂 Đăng nhập để thực hiện thao tác này!!!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -864,19 +867,8 @@ function HotelDetail({
         <ImageGallery items={createArrImage()} />
       </Modal>
       <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

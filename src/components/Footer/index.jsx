@@ -39,8 +39,8 @@ function Footer() {
           {renderCity()}
         </div>
       </div>
-      <div className="footer-top container">
-        <div className="footer-top-col-1">
+      <div className="footer-info container">
+        <div className="footer-info-col-1">
           <div>
            <p>   Về Arya</p>
             <p> Liên hệ</p>
@@ -52,7 +52,7 @@ function Footer() {
             <p> Hợp tác đại lý</p>
           </div>
         </div>
-        <div className="footer-top-col-2">
+        <div className="footer-info-col-2">
           <img
             src="https://statics.vntrip.vn/images/logo/appStore.png"
             alt=""
@@ -62,14 +62,14 @@ function Footer() {
             alt=""
           />
         </div>
-        <div className="footer-top-col-3">
+        <div className="footer-info-col-3">
           <span><b>Công ty TNHH ARYA OTA</b></span>
           <span><b>Tầng 5 Tòa nhà D</b></span>
           <span>Số 08 Hà Văn Tính, Liên Chiểu, Đà Nẵng</span>
           <span>Email: <span style={{color:"#0084cb"}}>cskh@arya.com</span></span>
           <span>Hotline: <span style={{color:"#ff8917"}}>0868869736</span></span>
         </div>
-        <div className="footer-top-col-4">
+        <div className="footer-info-col-4">
           <span><span>Du lịch thông minh!</span> Đăng ký nhận tin để lên kế hoạch cho kỳ nghỉ tới ngay từ bây giờ:</span>
           <div>
             <Input placeholder="Email của bạn"></Input>

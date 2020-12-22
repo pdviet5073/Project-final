@@ -23,7 +23,10 @@ import pool from "../../images/listHotel/iconpool.svg";
 import restaurant from "../../images/listHotel/iconrestaurant.svg";
 import laundry from "../../images/listHotel/iconlaunky.svg";
 
-import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import { FcLike, FcLikePlaceholder, } from "react-icons/fc";
+import { BiSearch } from "react-icons/bi";
+
+
 
 const { Search } = Input;
 function Hotel({
@@ -212,33 +215,37 @@ function Hotel({
               <div className="right-item-information-rate">
                 <Rate disabled allowHalf defaultValue={hotelItem.rate}></Rate>
               </div>
-              <Tooltip placement="topRight" title={hotelItem.address} color="#ff9633">
-              <div className="right-item-information-place text-clamp">
-                <img src={iconmaps} alt="iconmaps" />
-                <span>{hotelItem.address}</span>
-              </div>
+              <Tooltip
+                placement="topRight"
+                title={hotelItem.address}
+                color="#ff9633"
+              >
+                <div className="right-item-information-place text-clamp">
+                  <img src={iconmaps} alt="iconmaps" />
+                  <span>{hotelItem.address}</span>
+                </div>
               </Tooltip>
-              
+
               <div className="right-item-information-extensions">
-                {hotelItem.restaurant == true && (
+                {hotelItem.restaurant === true && (
                   <span>
                     <img src={restaurant} alt="restaurant" />
                     <span>Nhà hàng</span>
                   </span>
                 )}
-                {hotelItem.pool == true && (
+                {hotelItem.pool === true && (
                   <span>
                     <img src={pool} alt="pool" />
                     <span>Bể bơi</span>
                   </span>
                 )}
-                {hotelItem.laundry == true && (
+                {hotelItem.laundry === true && (
                   <span>
                     <img src={laundry} alt="laundry" />
                     <span>Giặt ủi</span>
                   </span>
                 )}
-                {hotelItem.parking == true && (
+                {hotelItem.parking === true && (
                   <span>
                     <img src={parking} alt="parking" />
                     <span>Đỗ xe</span>
@@ -265,11 +272,13 @@ function Hotel({
             </div>
           </div>
           <div className="right-item-price">
-            {1 ? (
-              <FcLikePlaceholder className="non-like"></FcLikePlaceholder>
-            ) : (
-              <FcLike className="point-heart" />
-            )}
+            <div>
+              {1 ? (
+                <FcLikePlaceholder className="non-like"></FcLikePlaceholder>
+              ) : (
+                <FcLike className="point-heart" />
+              )}
+            </div>
             <div>
               <div className="right-item-price-oldPrice">
                 <p>
@@ -299,189 +308,190 @@ function Hotel({
   return (
     <div className="page-hotel">
       <div className="container">
-      <div className="hotel-search">
-        <Select
-          showSearch
-          value={valueSelect}
-          defaultActiveFirstOption={false}
-          showArrow={false}
-          filterOption={false}
-          onSearch={handleSearchSelect}
-          onChange={handleChangeSelect}
-          notFoundContent={null}
-          className="hotel-search-input"
-        >
-          {options}
-        </Select>
-        <RangePicker
-          className="hotel-search-dateTime"
-          disabledDate={disabledDate}
-          defaultValue={[
-            moment(moment().startOf("day"), dateFormat),
-            moment(moment().add(1, "days"), dateFormat),
-          ]}
-          format={dateFormat}
-        />
-        <Input
-          placeholder="Nhập số người"
-          className="hotel-search-input-number"
-        />
-        <Button className="hotel-search-button">Tìm Kiếm</Button>
-      </div>
-      <div className="hotel-container">
-        <div className="hotel-content">
-          <div className="hotel-left">
-            <div className="hotel-left-number-one">
-              <div>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/67/Golden_Medal_-1_Icon.svg"
-                  alt="anh"
-                />
-              </div>
-              <h2>Số 1 về chất lượng và dịch vụ</h2>
-            </div>
-            <div className="hotel-left-container">
-              <div>
-                <h3>Tìm khách sạn</h3>
-                <Search
-                  placeholder="Nhập tên Khách sạn"
-                  onChange={(value) => handelChangeSearch(value)}
-                  onSearch={(value) => handelGetValueSearch(value)}
-                  className="hotel-left-content-search"
-                />
-              </div>
-              <div className="hotel-left-content-ranking">
-                <h3>Xếp hạng khách sạn</h3>
-                <Checkbox.Group onChange={onChangeCheckBox}>
-                  <Checkbox value="1">
-                    <Rate disabled value={1}></Rate>
-                  </Checkbox>
-                  <Checkbox value="2" className="ranking-item">
-                    <Rate disabled value={2}></Rate>
-                  </Checkbox>
-                  <Checkbox value="3" className="ranking-item">
-                    <Rate disabled value={3}></Rate>
-                  </Checkbox>
-                  <Checkbox value="4" className="ranking-item">
-                    <Rate disabled value={4}></Rate>
-                  </Checkbox>
-                  <Checkbox value="5" className="ranking-item">
-                    <Rate disabled value={5}></Rate>
-                  </Checkbox>
-                </Checkbox.Group>
-              </div>
-              <div className="hotel-left-content-sortPrice">
-                <h3>Mức giá</h3>
-                <div className="sortPrice-slider">
-                  <Slider
-                    range
-                    step={1}
-                    defaultValue={[0, 500000]}
-                    max={3000000}
-                    min={0}
+        <div className="hotel-search">
+          <Select
+            showSearch
+            value={valueSelect}
+            defaultActiveFirstOption={false}
+            showArrow={false}
+            filterOption={false}
+            onSearch={handleSearchSelect}
+            onChange={handleChangeSelect}
+            notFoundContent={null}
+            className="hotel-search-input"
+          >
+            {options}
+          </Select>
+          <RangePicker
+            className="hotel-search-dateTime"
+            disabledDate={disabledDate}
+            defaultValue={[
+              moment(moment().startOf("day"), dateFormat),
+              moment(moment().add(1, "days"), dateFormat),
+            ]}
+            format={dateFormat}
+          />
+
+          <Button className="hotel-search-button">Tìm Kiếm</Button>
+        </div>
+        <div className="hotel-container">
+          <div className="hotel-content">
+            <div className="hotel-left">
+              <div className="hotel-left-number-one">
+                <div>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/67/Golden_Medal_-1_Icon.svg"
+                    alt="anh"
                   />
                 </div>
-                <div className="hotel-left-content-priceRange">
-                  <Checkbox.Group onChange={onchangeRangePrice}>
+                <h2>Số 1 về chất lượng và dịch vụ</h2>
+              </div>
+              <div className="hotel-left-container">
+                <div>
+                  <h3>Tìm khách sạn</h3>
+                  <Search
+                    placeholder="Nhập tên Khách sạn"
+                    onChange={(value) => handelChangeSearch(value)}
+                    onSearch={(value) => handelGetValueSearch(value)}
+                    className="hotel-left-content-search"
+                  />
+                </div>
+                <div className="hotel-left-content-ranking">
+                  <h3>Xếp hạng khách sạn</h3>
+                  <Checkbox.Group onChange={onChangeCheckBox}>
+                    <Checkbox value="1">
+                      <Rate disabled value={1}></Rate>
+                    </Checkbox>
+                    <Checkbox value="2" className="ranking-item">
+                      <Rate disabled value={2}></Rate>
+                    </Checkbox>
+                    <Checkbox value="3" className="ranking-item">
+                      <Rate disabled value={3}></Rate>
+                    </Checkbox>
+                    <Checkbox value="4" className="ranking-item">
+                      <Rate disabled value={4}></Rate>
+                    </Checkbox>
+                    <Checkbox value="5" className="ranking-item">
+                      <Rate disabled value={5}></Rate>
+                    </Checkbox>
+                  </Checkbox.Group>
+                </div>
+                <div className="hotel-left-content-sortPrice">
+                  <h3>Mức giá</h3>
+                  <div className="sortPrice-slider">
+                    <Slider
+                      range
+                      step={1}
+                      defaultValue={[0, 500000]}
+                      max={3000000}
+                      min={0}
+                    />
+                  </div>
+                  <div className="hotel-left-content-priceRange">
+                    <Checkbox.Group onChange={onchangeRangePrice}>
+                      <Checkbox className="priceRange-first-child" value="1">
+                        Dưới 500000đ
+                      </Checkbox>
+                      <Checkbox className="priceRange-item" value="2">
+                        500000 - 1000000đ
+                      </Checkbox>
+                      <Checkbox className="priceRange-item" value="3">
+                        1000000 - 2000000đ
+                      </Checkbox>
+                      <Checkbox className="priceRange-item" value="4">
+                        2000000 - 3000000đ
+                      </Checkbox>
+                      <Checkbox className="priceRange-item" value="5">
+                        Trên 3000000đ
+                      </Checkbox>
+                    </Checkbox.Group>
+                  </div>
+                </div>
+                <div className="hotel-left-content-type">
+                  <h3>Loại chỗ ở</h3>
+                  <Checkbox.Group>
                     <Checkbox className="priceRange-first-child" value="1">
-                      Dưới 500000đ
+                      hotel
                     </Checkbox>
                     <Checkbox className="priceRange-item" value="2">
-                      500000 - 1000000đ
+                      apartment
                     </Checkbox>
                     <Checkbox className="priceRange-item" value="3">
-                      1000000 - 2000000đ
+                      guesthouse
                     </Checkbox>
                     <Checkbox className="priceRange-item" value="4">
-                      2000000 - 3000000đ
+                      hostel
                     </Checkbox>
                     <Checkbox className="priceRange-item" value="5">
-                      Trên 3000000đ
+                      aparthotel
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="6">
+                      homestay
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="7">
+                      resort
+                    </Checkbox>
+                    <Checkbox className="priceRange-item" value="8">
+                      villa
                     </Checkbox>
                   </Checkbox.Group>
                 </div>
               </div>
-              <div className="hotel-left-content-type">
-                <h3>Loại chỗ ở</h3>
-                <Checkbox.Group>
-                  <Checkbox className="priceRange-first-child" value="1">
-                    hotel
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="2">
-                    apartment
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="3">
-                    guesthouse
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="4">
-                    hostel
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="5">
-                    aparthotel
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="6">
-                    homestay
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="7">
-                    resort
-                  </Checkbox>
-                  <Checkbox className="priceRange-item" value="8">
-                    villa
-                  </Checkbox>
-                </Checkbox.Group>
+            </div>
+            <div className="hotel-right">
+              <div className="hotel-right-sort">
+                <Radio.Group
+                  defaultValue="a"
+                  size="large"
+                  defaultValue="bestFit"
+                >
+                  <Radio.Button value="a">Sắp xếp theo</Radio.Button>
+                  <Radio.Button value="bestFit" onChange={(e) => handelSort(e)}>
+                    Phù hợp nhất
+                  </Radio.Button>
+                  <Radio.Button value="asc" onChange={(e) => handelSort(e)}>
+                    Giá thấp nhất trước
+                  </Radio.Button>
+
+                  <Radio.Button value="desc" onChange={(e) => handelSort(e)}>
+                    Giá cao nhất trước
+                  </Radio.Button>
+
+                  <Radio.Button value="point" onChange={(e) => handelSort(e)}>
+                    Được đánh giá hàng đầu
+                  </Radio.Button>
+                </Radio.Group>
+              </div>
+              <div className="hotel-right-container">{renderHotelList()}</div>
+              <div className="hotel-pagination">
+                {(current === 1
+                  ? current === 1 && hotelList.length >= 10
+                  : hotelList.length >= 0) && (
+                  <Pagination
+                    current={current}
+                    total={40}
+                    onChange={(page) => {
+                      return (
+                        window.scrollTo(0, 53),
+                        setCurent(page),
+                        isShowSearchList !== true
+                          ? getHotelList({ page, limit: 10, place: place })
+                          : getSearchHotelList({
+                              place: place,
+                              page,
+                              rate: tempRate.rate,
+                              sort: tempRate.sort,
+                              rangePrice: tempRate.rangePrice,
+                            })
+                      );
+                    }}
+                  />
+                )}
               </div>
             </div>
           </div>
-          <div className="hotel-right">
-            <div className="hotel-right-sort">
-              <Radio.Group defaultValue="a" size="large" defaultValue="bestFit">
-                <Radio.Button value="a">Sắp xếp theo</Radio.Button>
-                <Radio.Button value="bestFit" onChange={(e) => handelSort(e)}>
-                  Phù hợp nhất
-                </Radio.Button>
-                <Radio.Button value="asc" onChange={(e) => handelSort(e)}>
-                  Giá thấp nhất trước
-                </Radio.Button>
-
-                <Radio.Button value="desc" onChange={(e) => handelSort(e)}>
-                  Giá cao nhất trước
-                </Radio.Button>
-
-                <Radio.Button value="point" onChange={(e) => handelSort(e)}>
-                  Được đánh giá hàng đầu
-                </Radio.Button>
-              </Radio.Group>
-            </div>
-            <div className="hotel-right-container">{renderHotelList()}</div>
-            <div className="hotel-pagination">
-              {(current === 1
-                ? current === 1 && hotelList.length >= 10
-                : hotelList.length >= 0) && (
-                <Pagination
-                  current={current}
-                  total={40}
-                  onChange={(page) => {
-                    return (
-                      window.scrollTo(0, 53),
-                      setCurent(page),
-                      isShowSearchList !== true
-                        ? getHotelList({ page, limit: 10, place: place })
-                        : getSearchHotelList({
-                            place: place,
-                            page,
-                            rate: tempRate.rate,
-                            sort: tempRate.sort,
-                            rangePrice: tempRate.rangePrice,
-                          })
-                    );
-                  }}
-                />
-              )}
-            </div>
-          </div>
         </div>
-      </div>
-      <div className="hotel-description"></div>
+        <div className="hotel-description"></div>
       </div>
     </div>
   );
