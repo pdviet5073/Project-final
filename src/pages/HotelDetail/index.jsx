@@ -717,15 +717,15 @@ function HotelDetail({
                       <div>
                         <FrownOutlined
                           className={
-                            (index == 0
+                            (index === 0
                               ? value1
-                              : index == 1
+                              : index === 1
                               ? value2
-                              : index == 2
+                              : index === 2
                               ? value3
-                              : index == 3
+                              : index === 3
                               ? value4
-                              : index == 4
+                              : index === 4
                               ? value5
                               : value6) <= 5
                               ? "icon-wrapper-active"
@@ -737,15 +737,15 @@ function HotelDetail({
                           max={10}
                           onChange={(value) => handleChange(value, index)}
                           value={
-                            index == 0
+                            index === 0
                               ? value1
-                              : index == 1
+                              : index === 1
                               ? value2
-                              : index == 2
+                              : index === 2
                               ? value3
-                              : index == 3
+                              : index === 3
                               ? value4
-                              : index == 4
+                              : index === 4
                               ? value5
                               : value6
                           }
@@ -753,15 +753,15 @@ function HotelDetail({
                         />
                         <SmileOutlined
                           className={
-                            (index == 0
+                            (index === 0
                               ? value1
-                              : index == 1
+                              : index === 1
                               ? value2
-                              : index == 2
+                              : index === 2
                               ? value3
-                              : index == 3
+                              : index === 3
                               ? value4
-                              : index == 4
+                              : index === 4
                               ? value5
                               : value6) > 5
                               ? "icon-wrapper-active"

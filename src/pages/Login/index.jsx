@@ -134,7 +134,7 @@ function Login({
                     <div className="horizontal-line"> </div>
                   </div>
                   <div className="loginContainer-social-button">
-                    <div className="social-google-button social-button">
+                    <div className="social-google-button social-button" > 
                       <div className="social-button-item">
                         <img src={googlelogo} alt="googlelogo" />
                         <span>Google</span>

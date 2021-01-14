@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom';
 import { Router, Switch } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
@@ -18,6 +19,7 @@ import PayRoom from "./pages/PayRoom";
 import Home from './pages/Home';
 import Hotel from './pages/Hotel';
 import HotelDetail from './pages/HotelDetail';
+import Profile from "./pages/Profile"
 
 import history from './util/history';
 
@@ -26,6 +28,7 @@ import mySaga from './redux/sagas';
 
 import * as serviceWorker from './serviceWorker';
 
+import './reset.css';
 import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -44,7 +47,9 @@ ReactDOM.render(
           
           <DefaultLayout exact path="/hotel/:place" component={Hotel} />
           <DefaultLayout exact path="/hotel/:place/:id" component={HotelDetail} />
-         
+          <DefaultLayout exact path="/profile" component={Profile} />
+
+          
          {/* <SignUp></SignUp> */}
         </Switch>
       </Router>

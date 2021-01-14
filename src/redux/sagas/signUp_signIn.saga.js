@@ -18,7 +18,6 @@ function* createUserAccountSaga(action) {
     const {email} = action.payload;
     const responseCheck = yield axios.get(`${apiUrl}/userAccount?email=${email}`);
     const dataCheck = responseCheck.data;
-    console.log('Log: : function*createUserAccountSaga -> dataCheck', dataCheck.length);
     if(dataCheck.length>0){
       toast('🤔 Tên tài khoản đã tồn tại', {
         position: "top-center",

@@ -18,8 +18,7 @@ import applelogo from "../../images/headerImages/applelogo.png";
 
 import { createUserAccount } from "../../redux/actions";
 
-import { getUserAccount } from "../../redux/actions";
-import { ToastContainer, Slide} from "react-toastify";
+
 import "./styles.css";
 const { Option } = Select;
 

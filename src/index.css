@@ -50,3 +50,16 @@ a {
   padding-right: 2rem;
   margin: 0 auto;
 }
+
+.btn{
+  min-width: 11rem;
+  min-height:3.5rem;
+  border-radius: .5rem;
+}
+.btn + .btn{
+  margin-left: 1.6rem;
+}
+.btn-radius{
+  border-radius: 5rem;
+
+}
