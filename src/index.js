@@ -12,14 +12,16 @@ import 'antd/dist/antd.css';
 import DefaultLayout from './layout/DefaultLayout';
 import LoginLayout from './layout/LoginLayout';
 import BookingLayout from './layout/BookingLayout';
+import PaymentSuccessLayout from './layout/PaymentSuccessLayout';
 
 import SignUp from "./pages/SignUp";
-import InformationBooking from "./pages/InformationBooking";
-import PayRoom from "./pages/PayRoom";
+import InformationBooking from "./pages/InfomationBooking";
+import Payment from "./pages/Payment";
 import Home from './pages/Home';
 import Hotel from './pages/Hotel';
 import HotelDetail from './pages/HotelDetail';
 import Profile from "./pages/Profile"
+import PaymentSuccess from "./pages/PaymentSuccess"
 
 import history from './util/history';
 
@@ -41,7 +43,10 @@ ReactDOM.render(
       <Router history={history}>
         <Switch>
           <BookingLayout exact path="/booking/:place/:idHotel/:idRoom/step-1" component={InformationBooking}/>
-          <BookingLayout exact path="/booking/:place/:idHotel/:idRoom/step-2" component={PayRoom}/>
+          <BookingLayout exact path="/booking/:place/:idHotel/:idRoom/step-2" component={Payment}/>
+          <PaymentSuccessLayout exact path="/booking/:place/:idHotel/:idRoom/step-3" component={PaymentSuccess}/>
+
+          
           <LoginLayout exact path="/signUp" component={SignUp} />
           <DefaultLayout exact path="/" component={Home} />
           

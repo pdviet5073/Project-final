@@ -55,6 +55,27 @@ a {
   min-width: 11rem;
   min-height:3.5rem;
   border-radius: .5rem;
+  color: #fff;
+
+}
+.btn-lg{
+  min-width: 13rem;
+  min-height:3.5rem;
+  border-radius: .5rem;
+  color: #fff;
+
+}
+.btn-primary{
+  background-color: #ff8917;
+  border: #ff8917;
+  color: #fff;
+
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+ 
+  background-color: #ff9633;
+  border: #ff9633;
+  color: #fff;
 }
 .btn + .btn{
   margin-left: 1.6rem;

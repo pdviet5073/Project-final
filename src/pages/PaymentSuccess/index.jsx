@@ -1,18 +1,16 @@
 import React from 'react';
-
+import success from "../../images/Success/check.svg"
 import './styles.css';
 
-function Dashboard() {
+function PaymentSuccess() {
   return (
     <div>
   {/* Modal HTML */}
-  <div id="myModal" className="modal fade">
+  <div  className="modal ">
         <div className="modal-dialog modal-confirm">
           <div className="modal-content">
             <div className="modal-header">
-              <div className="icon-box">
-                <i className="material-icons">&#xE876;</i>
-              </div>
+                <img src={success} alt="success"/>
               <h4 className="modal-title">Đặt phòng thành công!</h4>
             </div>
             <div className="modal-body">
@@ -32,4 +30,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default PaymentSuccess;

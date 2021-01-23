@@ -22,6 +22,9 @@ import {
   GET_RANDOM_HOTEL_FAIL,
 } from "../constants";
 
+const apiUrl = 'http://localhost:3001';
+
+
 function* getHotelListSaga(action) {
   try {
     const { page, limit, place } = action.payload;
@@ -164,7 +167,7 @@ function* getRandomHotelSaga(action) {
     const { place } = action.payload;
     const response = yield axios({
       method: "GET",
-      url: "http://localhost:3001/hotel",
+      url: `${apiUrl}/hotel`,
       params: {
         place: place,
       },

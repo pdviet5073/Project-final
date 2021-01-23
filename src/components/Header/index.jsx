@@ -119,7 +119,6 @@ function Header({ account, getUserAccount }) {
             <div
               className="hotel pointer"
               onClick={() => {
-                
                 history.push("/");
               }}
             >
@@ -160,11 +159,19 @@ function Header({ account, getUserAccount }) {
             <img src={icontrangchu} alt="icontrangchu" />
             <p>Trang chủ</p>
           </div>
+          {checkLoginHeader && (
+            <div
+              className="sidebar-vertical-item pointer"
+              onClick={() => {
+                history.push("/profile");
+                hideSidebarVertical();
+              }}
+            >
+              <img src={icondatchocuatoi} alt="icondatchocuatoi" />
+              <p>Đặt chỗ của tôi</p>
+            </div>
+          )}
 
-          <div className="sidebar-vertical-item pointer">
-            <img src={icondatchocuatoi} alt="icondatchocuatoi" />
-            <p>Đặt chỗ của tôi</p>
-          </div>
           <div className="sidebar-vertical-item pointer">
             <img src={iconlienhe} alt="iconlienhe" />
             <p>Liên hệ</p>
@@ -195,7 +202,7 @@ function Header({ account, getUserAccount }) {
             <img src={icontrogiup} alt="icontrogiup" />
             <p>Hỗ trợ</p>
           </div>
-          {checkLoginHeader === true && (
+          {checkLoginHeader && (
             <div
               className="sidebar-vertical-item pointer"
               onClick={() => handelLogOut()}
@@ -236,7 +243,7 @@ function Header({ account, getUserAccount }) {
 }
 
 const mapStateToProps = (state) => {
-  const { account } = state.signUpReducer;
+  const { account } = state.authReducer;
   return {
     account,
   };

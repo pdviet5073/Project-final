@@ -185,7 +185,7 @@ function Hotel({
       return hotelList;
     }
   };
-  // const newList = () => {
+  // const newList = () => {s
   //   if (isShowSearchList) {
   //     if (searchHotelList.length>0 && searchKey =="") return searchHotelList;
   //     else if( searchKey !="") return filterSearchListData;

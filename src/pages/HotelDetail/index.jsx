@@ -97,12 +97,15 @@ function HotelDetail({
     let dateTime = {
       checkIn: moment().startOf("day").format("L"),
       checkOut: moment().add(1, "day").format("L"),
+      // dddd, DD MM YYYY
     };
 
     let rangeDateTime = JSON.stringify(dateTime);
     sessionStorage.setItem("date", rangeDateTime);
   }, [hotelId]);
 
+  //chuyển đổi ngày sang tiếng việt
+  //moment.locale("vi"); 
   const dateFormat = ["MM/DD/YYYY"];
   const { RangePicker } = DatePicker;
   const infoHotelDetail = hotelDetail.slice(0, 1);
@@ -219,7 +222,9 @@ function HotelDetail({
   }
   // get value datetinme vào session
   const handleChangeDateTime = (value, dateString) => {
-    let dateTime = { checkIn: dateString[0], checkOut: dateString[1] };
+    // let dateTime = { checkIn:  moment(`${dateString[0]}`).format("dddd, DD MMMM YYYY"), checkOut: moment(`${dateString[1]}`).format("dddd, DD MMMM YYYY")};
+     let dateTime = { checkIn: dateString[0], checkOut: dateString[1]};
+    
     let rangeDateTime = JSON.stringify(dateTime);
     sessionStorage.setItem("date", rangeDateTime);
   };

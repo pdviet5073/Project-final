@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { connect } from "react-redux";
 import history from '../../util/history';
 
@@ -8,13 +8,15 @@ import {
   Select,
   Checkbox,
   Button,
-  AutoComplete,
   Modal,
 } from "antd";
 import signuppanner from "../../images/headerImages/signuppanner.svg";
 import googlelogo from "../../images/headerImages/googlelogo.png";
 import facebooklogo from "../../images/headerImages/facebooklogo.png";
 import applelogo from "../../images/headerImages/applelogo.png";
+
+import { ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { createUserAccount } from "../../redux/actions";
 
@@ -72,7 +74,7 @@ function SignUp({
         name="register"
         onFinish={(values) => onFinish(values)}
         initialValues={
-          (showSignUp==true ?{
+          (showSignUp === true ?{
             prefix: "+84",
             email: "",
             password: "",
@@ -91,12 +93,16 @@ function SignUp({
           label="Email"
           rules={[
             {
+              max: 80,
+              message: "Email không được vượt quá 80 ký tự!",
+            },
+            {
               type: "email",
-              message: "Định dạng địa chỉ email không hợp lệ.!",
+              message: "Định dạng địa chỉ email không hợp lệ.",
             },
             {
               required: true,
-              message: "Yêu cầu nhập địa chỉ email!",
+              message: "  ",
             },
           ]}
         >
@@ -107,6 +113,10 @@ function SignUp({
           name="password"
           label="Mật khẩu"
           rules={[
+            {
+              max: 20,
+              message: "Mật khẩu không được quá 20 ký tự!",
+            },
             {
               required: true,
               message: "Vui lòng nhập mật khẩu!",
@@ -127,8 +137,8 @@ function SignUp({
           hasFeedback
           rules={[
             {
-              required: true,
-              message: "Vui lòng nhập lại!",
+              max: 20,
+              message: "Mật khẩu không được quá 20 ký tự!",
             },
             {
               min: 6,
@@ -152,6 +162,11 @@ function SignUp({
           label="Họ"
           rules={[
             {
+              max: 20,
+              message: "Họ không được quá 20 ký tự!",
+            },
+
+            {
               required: true,
               message: "Vui lòng nhập họ !",
             },
@@ -164,8 +179,12 @@ function SignUp({
           label="Tên và tên đệm"
           rules={[
             {
+              max: 20,
+              message: "Tên và tên đệm không được quá 20 ký tự!",
+            },
+            {
               required: true,
-              message: "Vui lòng nhập tên !",
+              message: "Vui lòng nhập tên và tên đệm !",
             },
           ]}
         >
@@ -181,6 +200,10 @@ function SignUp({
               required: true,
               message: "Vui lòng nhập số điện thoại!",
             },
+            {
+              pattern: (/(03|05|07|08|09)+([0-9]{8})\b/),
+              message: 'Số điện thoại không hợp lệ!'
+          }
           ]}
         >
           <Input
@@ -297,12 +320,12 @@ function SignUp({
           </div>
         </div>
       </Modal>
-     
+      <ToastContainer />
     </div>
   );
 }
 const mapStateToProps = (state) => {
-  const { createAccount } = state.signUpReducer;
+  const { createAccount } = state.authReducer;
   return {
     createAccount
   }

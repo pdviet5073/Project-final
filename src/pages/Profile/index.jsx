@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Tabs } from "antd";
 
 import Account from "./account";
 import Order from "./order";
@@ -14,12 +13,10 @@ import { MdAssessment } from "react-icons/md";
 import "./styles.css";
 
 function Profile() {
-  const [styleLi, setStyleLi] = useState(4);
-  console.log('Log:  ~ file: index.jsx ~ line 18 ~ Profile ~ styleLi', styleLi);
+  const [isActive, setIsActive] = useState(0);
   const changeStyleLi = (number) => {
-    setStyleLi(number);
+    setIsActive(number);
   };
-  const { TabPane } = Tabs;
 
   return (
     <div className="profile">
@@ -30,7 +27,7 @@ function Profile() {
               <li
                 onClick={() => changeStyleLi(0)}
                 className={
-                  styleLi === 0
+                  isActive === 0
                     ? `profile-nav-item-active`
                     : "profile-nav-item "
                 }
@@ -40,7 +37,7 @@ function Profile() {
               <li
                 onClick={() => changeStyleLi(1)}
                 className={
-                  styleLi === 1
+                  isActive === 1
                     ? `profile-nav-item-active`
                     : "profile-nav-item "
                 }
@@ -50,7 +47,7 @@ function Profile() {
               <li
                 onClick={() => changeStyleLi(2)}
                 className={
-                  styleLi === 2
+                  isActive === 2
                     ? `profile-nav-item-active`
                     : "profile-nav-item "
                 }
@@ -60,7 +57,7 @@ function Profile() {
               <li
                 onClick={() => changeStyleLi(3)}
                 className={
-                  styleLi === 3
+                  isActive === 3
                     ? `profile-nav-item-active`
                     : "profile-nav-item "
                 }
@@ -70,39 +67,34 @@ function Profile() {
               <li
                 onClick={() => changeStyleLi(4)}
                 className={
-                  styleLi === 4
+                  isActive === 4
                     ? `profile-nav-item-active`
                     : "profile-nav-item "
                 }
               >
                 <BiUserPin></BiUserPin>Tài khoản
               </li>
-              <li style={{ top: `calc(${styleLi} * 6rem)` }}></li>
+              <li style={{ top: `calc(${isActive} * 6rem)` }}></li>
             </ul>
           </div>
           <div className="profile-content">
-          
-              <div className="profile-item">
-              {styleLi === 0  
-                ? <Dashboard></Dashboard>
-                : styleLi === 1
-                ? <Voucher></Voucher>
-                : styleLi === 2
-                ? <Order></Order>
-                : styleLi === 3
-                ? <Review></Review>
-                : <Account></Account>
-                }
-              </div>
-        
-         
-          
-              
+            <div className="profile-item">
+              {isActive === 0 ? (
+                <Dashboard></Dashboard>
+              ) : isActive === 1 ? (
+                <Voucher></Voucher>
+              ) : isActive === 2 ? (
+                <Order></Order>
+              ) : isActive === 3 ? (
+                <Review></Review>
+              ) : (
+                <Account></Account>
+              )}
             </div>
           </div>
         </div>
       </div>
-    
+    </div>
   );
 }
 

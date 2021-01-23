@@ -1,5 +1,6 @@
 import {
-  CREATE_TEMP_BOOKING,
+  GET_BOOKING,
+  SET_BOOKING,
   GET_ROOM_BOOKING,
 } from '../constants';
 
@@ -10,9 +11,16 @@ export function getRoomBooking(params) {
   }
 }
 
-export function createTempBooking(params) {
+export function setBooking(params) {
   return {
-    type: CREATE_TEMP_BOOKING,
+    type: SET_BOOKING,
+    payload: params,
+  }
+}
+
+export function getBooking(params) {
+  return {
+    type: GET_BOOKING,
     payload: params,
   }
 }

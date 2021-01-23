@@ -192,13 +192,13 @@ function Login({
           </div>
         </div>
       </Modal>
-     
+      <ToastContainer />
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
-  const { account } = state.signUpReducer;
+  const { account } = state.authReducer;
   return {
     account,
   };

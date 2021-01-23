@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import { Route } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import InforRoomBooking from "../../components/InforRoomBooking";
+import InfoRoomBooking from "../../components/InfoRoomBooking";
 import './styles.css';
 
 function BookingLayout({ component: Component, ...props }) {
   const [checkPagePay, setCheckPagePay] = useState(false)
+  const [infoBooking, setInfoBooking] = useState({})
+
   return (
     <Route
       {...props}
@@ -14,8 +16,8 @@ function BookingLayout({ component: Component, ...props }) {
         <>
           <Header {...routerProps}/>
           <div className="container main-booking">
-            <Component setCheckPagePay={setCheckPagePay} checkPagePay={checkPagePay} {...routerProps} />
-            <InforRoomBooking setCheckPagePay={setCheckPagePay} checkPagePay={checkPagePay} {...routerProps}/>
+            <Component setCheckPagePay={setCheckPagePay} checkPagePay={checkPagePay} {...routerProps} infoBooking={infoBooking}/>
+            <InfoRoomBooking setCheckPagePay={setCheckPagePay} checkPagePay={checkPagePay} {...routerProps} setInfoBooking={setInfoBooking}/>
           </div>
           <div className="booking-footer"></div>
         </>

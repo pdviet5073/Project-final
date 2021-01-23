@@ -1,34 +1,40 @@
 import {
   GET_ROOM_BOOKING_SUCCESS,
   GET_ROOM_BOOKING_FAIL,
-  CREATE_TEMP_BOOKING_SUCCESS,
-  CREATE_TEMP_BOOKING_FAIL,
-} from '../constants';
+  SET_BOOKING_SUCCESS,
+  GET_BOOKING_SUCCESS,
+  GET_BOOKING_FAIL,
+} from "../constants";
 
 const initialState = {
-  roomBooking: [],
-  tempBooking:{}
+  roomBookingData: [],
+  bookingData: [],
+  setBookingData: {},
 };
-
+// {...action.payload, code: `ARYA2021${userId}0${hotelId}0${roomId}`}
 export default function bookingReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ROOM_BOOKING_SUCCESS: {
       return {
         ...state,
-        roomBooking: [
-          ...action.payload,
-        ],
-      }
+        roomBookingData: [...action.payload],
+      };
     }
-    case CREATE_TEMP_BOOKING_SUCCESS: {
+    case SET_BOOKING_SUCCESS: {
       return {
         ...state,
-        tempBooking:{
+        setBookingData: {
           ...action.payload,
         },
-      }
+      };
     }
-    
+    case GET_BOOKING_SUCCESS: {
+      return {
+        ...state,
+        bookingData: [...action.payload],
+      };
+    }
+
     default: {
       return state;
     }
